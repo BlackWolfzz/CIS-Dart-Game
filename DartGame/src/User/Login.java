@@ -21,6 +21,8 @@ import java.awt.Dimension;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import MainGame.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class Login extends JFrame {
 
@@ -51,6 +53,7 @@ public class Login extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 678);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(204, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -65,7 +68,7 @@ public class Login extends JFrame {
 		lblNewLabel_1.setBounds(10, 11, 80, 94);
 		contentPane.add(lblNewLabel_1);
 
-		JLabel lblNewLabel = new JLabel("Sign Up");
+		JLabel lblNewLabel = new JLabel("Login");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Avenir LT Std 55 Roman", Font.PLAIN, 45));
 		lblNewLabel.setBounds(132, 28, 175, 65);
@@ -142,6 +145,14 @@ public class Login extends JFrame {
 		contentPane.add(lblNewLabel_3);
 
 		JButton btnsignup = new JButton("SIGN UP");
+		btnsignup.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				contentPane.setVisible(false);
+				dispose();
+				CreateProfile.main(null);
+			}
+		});
 		btnsignup.setFont(new Font("Microsoft YaHei UI Light", Font.BOLD, 24));
 		btnsignup.setBackground(new Color(153, 204, 255));
 		btnsignup.setBounds(66, 542, 313, 46);
@@ -154,6 +165,15 @@ public class Login extends JFrame {
 		contentPane.add(lblNewLabel_1_2);
 
 		JButton btnClear = new JButton("Clear");
+		btnClear.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				txtUsername.setText("");
+				txtPassword.setText("");
+
+				txtUsername.requestFocus();
+			}
+		});
 		btnClear.setFont(new Font("Microsoft YaHei UI Light", Font.BOLD, 24));
 		btnClear.setBackground(new Color(255, 153, 153));
 		btnClear.setBounds(109, 416, 220, 46);

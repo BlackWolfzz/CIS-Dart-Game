@@ -29,7 +29,6 @@ import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.lang.StackWalker.Option;
 
 public class GLEasy extends JFrame {
 
@@ -51,10 +50,13 @@ public class GLEasy extends JFrame {
 		});
 	}
 
+	JFrame window;
+	JLabel counterLabel;
 	Timer timer;
 	int second, minute;
 	String ddSecond, ddMinute;
 	DecimalFormat dFormat = new DecimalFormat("00");
+	private JTextField textField;
 
 	/**
 	 * Create the frame.
@@ -102,38 +104,10 @@ public class GLEasy extends JFrame {
 		contentPane.add(lblLives);
 
 		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon(
-				"D:\\SLIIT\\3rd Year\\1st Sem\\CIS\\Eclipse\\Project\\Darts\\Darts new\\Facebook cover - 7.png"));
+		lblNewLabel_1.setIcon(
+				new ImageIcon("D:\\SLIIT\\3rd Year\\1st Sem\\CIS\\Eclipse\\Project\\Darts\\Darts new\\Level Easy.png"));
 		lblNewLabel_1.setBounds(58, 192, 820, 269);
 		contentPane.add(lblNewLabel_1);
-
-		JLabel lblTimer = new JLabel("");
-		lblTimer.setForeground(new Color(51, 102, 255));
-		lblTimer.setHorizontalAlignment(SwingConstants.CENTER);
-		lblTimer.setFont(new Font("Segoe UI Historic", Font.PLAIN, 23));
-		lblTimer.setBounds(108, 91, 114, 29);
-		contentPane.add(lblTimer);
-		lblTimer.setText("00:00");
-
-		JButton btnNewButton = new JButton("5");
-		btnNewButton.setFont(new Font("SF Pro Display", Font.PLAIN, 26));
-		btnNewButton.setBounds(312, 472, 178, 41);
-		contentPane.add(btnNewButton);
-
-		JButton btnNewButton_1 = new JButton("4");
-		btnNewButton_1.setFont(new Font("SF Pro Display", Font.PLAIN, 26));
-		btnNewButton_1.setBounds(596, 472, 178, 41);
-		contentPane.add(btnNewButton_1);
-
-		JButton btnNewButton_2 = new JButton("8");
-		btnNewButton_2.setFont(new Font("SF Pro Display", Font.PLAIN, 26));
-		btnNewButton_2.setBounds(312, 545, 178, 41);
-		contentPane.add(btnNewButton_2);
-
-		JButton btnNewButton_3 = new JButton("7");
-		btnNewButton_3.setFont(new Font("SF Pro Display", Font.PLAIN, 26));
-		btnNewButton_3.setBounds(596, 545, 178, 41);
-		contentPane.add(btnNewButton_3);
 
 		JLabel lblNewLabel_1_1 = new JLabel("");
 		lblNewLabel_1_1.addMouseListener(new MouseAdapter() {
@@ -170,33 +144,85 @@ public class GLEasy extends JFrame {
 				new ImageIcon("D:\\SLIIT\\3rd Year\\1st Sem\\CIS\\Eclipse\\Project\\Images\\icons8-target-60.png"));
 		lblNewLabel_1_1_2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1_1_2.setBounds(87, 490, 73, 69);
-		contentPane.add(lblNewLabel_1_1_2);
-		second = 0;
-		minute = 0;
-		normalTimer();
-		timer.start();
+
+	
+		
+
+		
+		JLabel lblTimer = new JLabel("");
+		lblTimer.setForeground(new Color(51, 102, 255));
+		lblTimer.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTimer.setFont(new Font("Segoe UI Historic", Font.PLAIN, 23));
+		lblTimer.setBounds(108, 91, 114, 29);
+		contentPane.add(lblTimer);
+		
+		JTextPane no1 = new JTextPane();
+		no1.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		no1.setBounds(177, 297, 45, 51);
+		contentPane.add(no1);
+		
+		JTextPane no2 = new JTextPane();
+		no2.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		no2.setBounds(255, 297, 45, 51);
+		contentPane.add(no2);
+		
+		textField = new JTextField();
+		textField.setBounds(511, 519, 346, 51);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		JLabel lblNewLabel_2 = new JLabel("Answer");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2.setBounds(204, 519, 173, 51);
+		contentPane.add(lblNewLabel_2);
+	}
+	public GLEasy {
+	window = new JFrame();
+	window.setSize(800, 600);
+	window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	window.getContentPane().setLayout(null);
+
+	counterLabel = new JLabel("");
+	counterLabel.setBounds(300, 230, 200, 100);
+	counterLabel.setHorizontalAlignment(JLabel.CENTER);
+	
+
+	window.getContentPane().add(counterLabel);
+	window.setVisible(false);
+
+	counterLabel.setText("03:00");
+	second = 0;
+	minute = 3;
+	countdownTimer();
+	timer.start();
 	}
 
-	public void normalTimer() {
+	public void countdownTimer() {
 
 		timer = new Timer(1000, new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				second++;
-
+				second--;
 				ddSecond = dFormat.format(second);
 				ddMinute = dFormat.format(minute);
 				lblTimer.setText(ddMinute + ":" + ddSecond);
 
-				if (second == 60) {
-					second = 0;
-					minute++;
-
+				if (second == -1) {
+					second = 59;
+					minute--;
 					ddSecond = dFormat.format(second);
 					ddMinute = dFormat.format(minute);
 					lblTimer.setText(ddMinute + ":" + ddSecond);
+				}
+				if (minute == 0 && second == 0) {
+					JOptionPane.showMessageDialog(null, "Time Over", "Game", JOptionPane.ERROR_MESSAGE);
+					contentPane.setVisible(false);
+					dispose();
+					TheDartGame.main(null);
+					timer.stop();
 				}
 			}
 		});

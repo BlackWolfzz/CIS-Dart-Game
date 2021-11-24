@@ -82,7 +82,7 @@ public class TheDartGame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmTheDartGame.dispose();
-				Player ui = new Player();
+				Options ui = new Options();
 				ui.setVisible(true);
 			}
 		});

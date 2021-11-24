@@ -78,7 +78,7 @@ public class Options extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				contentPane.setVisible(false);
 				dispose();
-				GLEasy.main(null);
+				GameEasy.main(null);
 			}
 		});
 		btnNewButton.setBackground(new Color(204, 255, 204));
@@ -92,7 +92,7 @@ public class Options extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				contentPane.setVisible(false);
 				dispose();
-				GLMedium.main(null);
+				GameMedium.main(null);
 			}
 		});
 		btnMedium.setForeground(Color.BLACK);
@@ -106,7 +106,7 @@ public class Options extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				contentPane.setVisible(false);
 				dispose();
-				GLHard.main(null);
+				GameHard.main(null);
 			}
 		});
 		btnHard.setForeground(Color.BLACK);

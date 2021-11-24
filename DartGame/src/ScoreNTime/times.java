@@ -9,7 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.Timer;
 
-public class Timer {
+public class times {
 	JFrame window;
 	JLabel counterLabel;
 	Font font1 = new Font("Arial", Font.PLAIN, 70);	
@@ -20,7 +20,7 @@ public class Timer {
 	
 	
 	
-	public Timer()
+	public times()
 	{
 		window = new JFrame();
 		window.setSize(800,600);
@@ -73,3 +73,4 @@ public void countdownTimer() {
 	}		
 	
 }
+

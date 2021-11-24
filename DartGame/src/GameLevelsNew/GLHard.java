@@ -99,7 +99,7 @@ public class GLHard extends JFrame {
 		contentPane.add(lblLives);
 
 		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon("D:\\SLIIT\\3rd Year\\1st Sem\\CIS\\Eclipse\\Project\\Darts\\Darts new\\Facebook cover - 1.png"));
+		lblNewLabel_1.setIcon(new ImageIcon("D:\\SLIIT\\3rd Year\\1st Sem\\CIS\\Eclipse\\Project\\Darts\\Darts new\\Level Hard.png"));
 		lblNewLabel_1.setBounds(58, 192, 820, 269);
 		contentPane.add(lblNewLabel_1);
 
