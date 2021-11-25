@@ -71,11 +71,7 @@ public class GameHard extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-//	Elastic_collision objectB;
-//	Elastic_collision objectA;
-//	Elastic_collision velocityA;
-//	Elastic_collision velocityB;
-//	Elastic_collision velocityC;
+
 	private JTextPane txtpn_score;
 	private JLabel lbltimeLabel_1;
 	private JLabel lblNewLabel_1;
@@ -88,6 +84,7 @@ public class GameHard extends JFrame {
 	private JTextPane textPane_m2k_6;
 
 	public GameHard() {
+		setResizable(false);
 		setTitle("The Dart Game - Hard");
 		setIconImage(Toolkit.getDefaultToolkit()
 				.getImage("D:\\SLIIT\\3rd Year\\1st Sem\\CIS\\Eclipse\\Project\\Images\\icons8-target-60.png"));
@@ -114,9 +111,7 @@ public class GameHard extends JFrame {
 
 		}
 
-// Scorecal score =new Scorecal();
-//			
-
+		// Random Number maker
 		int min = 1;
 		int max = 5;
 		int Score = 0;
@@ -137,39 +132,36 @@ public class GameHard extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 851, 515);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(153, 255, 204));
+		contentPane.setBackground(new Color(255, 153, 153));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		// window center
+		// Window center
 		Toolkit toolkit = getToolkit();
 		Dimension size = toolkit.getScreenSize();
 		setLocation(size.width / 2 - getWidth() / 2, size.height / 2 - getHeight() / 2);
 
+		// Score
 		JLabel lblScore = new JLabel("Score");
 		lblScore.setHorizontalAlignment(SwingConstants.CENTER);
 		lblScore.setFont(new Font("Segoe UI Historic", Font.PLAIN, 21));
 		lblScore.setBounds(10, 11, 79, 43);
 		contentPane.add(lblScore);
 
+		// Timer
 		JLabel lblTime = new JLabel("Time");
 		lblTime.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTime.setFont(new Font("Segoe UI Historic", Font.PLAIN, 21));
 		lblTime.setBounds(414, 16, 74, 32);
 		contentPane.add(lblTime);
 
+		// Random Numbers
 		textPane_m1k = new JTextPane();
 		textPane_m1k.setText("" + no1);
 		textPane_m1k.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 23));
 		textPane_m1k.setBounds(150, 156, 33, 34);
 		contentPane.add(textPane_m1k);
-
-		textField_4 = new JTextField();
-		textField_4.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 25));
-		textField_4.setColumns(10);
-		textField_4.setBounds(445, 316, 159, 43);
-		contentPane.add(textField_4);
 
 		textPane_m2k = new JTextPane();
 		textPane_m2k.setEditable(false);
@@ -220,6 +212,13 @@ public class GameHard extends JFrame {
 		textPane_m2k_6.setBounds(661, 156, 33, 34);
 		contentPane.add(textPane_m2k_6);
 
+		// Answer
+		textField_4 = new JTextField();
+		textField_4.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 25));
+		textField_4.setColumns(10);
+		textField_4.setBounds(445, 316, 159, 43);
+		contentPane.add(textField_4);
+
 		lblFinalVelocityObject_1 = new JLabel("Answer");
 		lblFinalVelocityObject_1.setFont(new Font("Segoe UI Historic", Font.PLAIN, 22));
 		lblFinalVelocityObject_1.setBounds(318, 315, 117, 44);
@@ -250,7 +249,8 @@ public class GameHard extends JFrame {
 
 			}
 		});
-		btnNewButton.setFont(new Font("Segoe UI Historic", Font.PLAIN, 18));
+
+		btnNewButton.setFont(new Font("Segoe UI Historic", Font.PLAIN, 20));
 		btnNewButton.setForeground(new Color(255, 0, 0));
 		btnNewButton.setBackground(new Color(255, 255, 204));
 		btnNewButton.setBounds(391, 393, 107, 37);
@@ -263,7 +263,7 @@ public class GameHard extends JFrame {
 		txtpn_score.setBounds(99, 19, 79, 35);
 		contentPane.add(txtpn_score);
 
-		// time label
+		// Time label
 
 		lbltimeLabel_1 = new JLabel("");
 		lbltimeLabel_1.setHorizontalAlignment(SwingConstants.CENTER);

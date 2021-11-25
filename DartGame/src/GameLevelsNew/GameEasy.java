@@ -71,17 +71,14 @@ public class GameEasy extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-//	Elastic_collision objectB;
-//	Elastic_collision objectA;
-//	Elastic_collision velocityA;
-//	Elastic_collision velocityB;
-//	Elastic_collision velocityC;
+
 	private JTextPane txtpn_score;
 	private JLabel lbltimeLabel_1;
 	private JLabel lblNewLabel_1;
 	private JLabel lblNewLabel_2;
 
 	public GameEasy() {
+		setResizable(false);
 		setTitle("The Dart Game - Easy");
 		setIconImage(Toolkit.getDefaultToolkit()
 				.getImage("D:\\SLIIT\\3rd Year\\1st Sem\\CIS\\Eclipse\\Project\\Images\\icons8-target-60.png"));
@@ -108,9 +105,7 @@ public class GameEasy extends JFrame {
 
 		}
 
-// Scorecal score =new Scorecal();
-//			
-
+		// Random Number maker
 		int min = 1;
 		int max = 20;
 		int Score = 0;
@@ -127,39 +122,36 @@ public class GameEasy extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 851, 515);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(153, 255, 204));
+		contentPane.setBackground(new Color(204, 255, 204));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		// window center
+		// Window center
 		Toolkit toolkit = getToolkit();
 		Dimension size = toolkit.getScreenSize();
 		setLocation(size.width / 2 - getWidth() / 2, size.height / 2 - getHeight() / 2);
 
+		// Score
 		JLabel lblScore = new JLabel("Score");
 		lblScore.setHorizontalAlignment(SwingConstants.CENTER);
 		lblScore.setFont(new Font("Segoe UI Historic", Font.PLAIN, 21));
 		lblScore.setBounds(10, 11, 79, 43);
 		contentPane.add(lblScore);
 
+		// Timer
 		JLabel lblTime = new JLabel("Time");
 		lblTime.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTime.setFont(new Font("Segoe UI Historic", Font.PLAIN, 21));
 		lblTime.setBounds(414, 16, 74, 32);
 		contentPane.add(lblTime);
 
+		// Random Numbers
 		textPane_m1k = new JTextPane();
 		textPane_m1k.setText("" + no1);
 		textPane_m1k.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 23));
 		textPane_m1k.setBounds(138, 153, 40, 34);
 		contentPane.add(textPane_m1k);
-
-		textField_4 = new JTextField();
-		textField_4.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 25));
-		textField_4.setColumns(10);
-		textField_4.setBounds(445, 316, 159, 43);
-		contentPane.add(textField_4);
 
 		textPane_m2k = new JTextPane();
 		textPane_m2k.setEditable(false);
@@ -168,11 +160,19 @@ public class GameEasy extends JFrame {
 		textPane_m2k.setBounds(214, 153, 40, 37);
 		contentPane.add(textPane_m2k);
 
+		// Answer
+		textField_4 = new JTextField();
+		textField_4.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 25));
+		textField_4.setColumns(10);
+		textField_4.setBounds(445, 316, 159, 43);
+		contentPane.add(textField_4);
+
 		lblFinalVelocityObject_1 = new JLabel("Answer");
 		lblFinalVelocityObject_1.setFont(new Font("Segoe UI Historic", Font.PLAIN, 22));
 		lblFinalVelocityObject_1.setBounds(318, 315, 117, 44);
 		contentPane.add(lblFinalVelocityObject_1);
 
+		// Check button
 		btnNewButton = new JButton("Check");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -198,7 +198,7 @@ public class GameEasy extends JFrame {
 
 			}
 		});
-		btnNewButton.setFont(new Font("Segoe UI Historic", Font.PLAIN, 18));
+		btnNewButton.setFont(new Font("Segoe UI Historic", Font.PLAIN, 20));
 		btnNewButton.setForeground(new Color(255, 0, 0));
 		btnNewButton.setBackground(new Color(255, 255, 204));
 		btnNewButton.setBounds(391, 393, 107, 37);
@@ -211,7 +211,7 @@ public class GameEasy extends JFrame {
 		txtpn_score.setBounds(99, 19, 79, 35);
 		contentPane.add(txtpn_score);
 
-		// time label
+		// Time label
 
 		lbltimeLabel_1 = new JLabel("");
 		lbltimeLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
@@ -249,13 +249,13 @@ public class GameEasy extends JFrame {
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_2.setBounds(749, 0, 73, 69);
 		contentPane.add(lblNewLabel_2);
-		
-				lblNewLabel = new JLabel("");
-				lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
-				lblNewLabel.setIcon(
-						new ImageIcon("D:\\SLIIT\\3rd Year\\1st Sem\\CIS\\Eclipse\\Project\\Darts\\Darts new\\Level Easy.png"));
-				lblNewLabel.setBounds(10, 73, 812, 201);
-				contentPane.add(lblNewLabel);
+
+		lblNewLabel = new JLabel("");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel.setIcon(
+				new ImageIcon("D:\\SLIIT\\3rd Year\\1st Sem\\CIS\\Eclipse\\Project\\Darts\\Darts new\\Level Easy.png"));
+		lblNewLabel.setBounds(10, 73, 812, 201);
+		contentPane.add(lblNewLabel);
 	}
 
 	public void countdownTimer() {

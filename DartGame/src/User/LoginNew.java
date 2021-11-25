@@ -152,9 +152,9 @@ public class LoginNew extends JFrame {
 						txtUsername.setText(null);
 
 						txtUsername.requestFocus();
-					}
 
-					con.close();
+						con.close();
+					}
 
 				} catch (Exception e) {
 					System.out.println(e);
