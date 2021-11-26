@@ -1,4 +1,5 @@
 package MainGame;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -9,7 +10,7 @@ import javax.swing.JOptionPane;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 
-import User.Login;
+import User.*;
 import Scoreboard.*;
 
 import javax.swing.ImageIcon;
@@ -64,7 +65,8 @@ public class TheDartGame {
 		frmTheDartGame.setLocationRelativeTo(null);
 
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("D:\\SLIIT\\3rd Year\\1st Sem\\CIS\\Eclipse\\Project\\Darts\\Darts new\\The Dart Game 3.png"));
+		lblNewLabel.setIcon(new ImageIcon(
+				"D:\\SLIIT\\3rd Year\\1st Sem\\CIS\\Eclipse\\Project\\Darts\\Darts new\\The Dart Game 3.png"));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setForeground(Color.DARK_GRAY);
 		lblNewLabel.setFont(new Font("Avenir LT Std 45 Book", Font.PLAIN, 80));
@@ -78,7 +80,8 @@ public class TheDartGame {
 		lblNewLabel_1.setBounds(384, 86, 80, 79);
 		frmTheDartGame.getContentPane().add(lblNewLabel_1);
 
-		JButton btnNewButton = new JButton("Start Game");
+		// Start Game
+		JButton btnNewButton = new JButton("START GAME");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmTheDartGame.dispose();
@@ -87,10 +90,11 @@ public class TheDartGame {
 			}
 		});
 		btnNewButton.setBackground(new Color(153, 255, 153));
-		btnNewButton.setFont(new Font("Microsoft YaHei Light", Font.PLAIN, 38));
-		btnNewButton.setBounds(301, 175, 267, 69);
+		btnNewButton.setFont(new Font("Microsoft YaHei Light", Font.BOLD, 38));
+		btnNewButton.setBounds(294, 176, 280, 69);
 		frmTheDartGame.getContentPane().add(btnNewButton);
 
+		// How to Play
 		JButton btnHowToPlay = new JButton("How to Play");
 		btnHowToPlay.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -104,9 +108,14 @@ public class TheDartGame {
 		btnHowToPlay.setBounds(322, 287, 231, 63);
 		frmTheDartGame.getContentPane().add(btnHowToPlay);
 
+		// Exit
 		JButton btnExit = new JButton("Exit");
 		btnExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				/*
+				 * JOptionPane.showMessageDialog(null, "Are You Sure You want to Exit", "Exit",
+				 * JOptionPane.OK_CANCEL_OPTION);
+				 */
 				frmTheDartGame.dispose();
 			}
 		});
@@ -129,6 +138,7 @@ public class TheDartGame {
 		lblNewLabel_2_1.setBounds(694, 504, 93, 79);
 		frmTheDartGame.getContentPane().add(lblNewLabel_2_1);
 
+		// About
 		JLabel lblNewLabel_3 = new JLabel("V 1.0");
 		lblNewLabel_3.setFont(new Font("Source Code Pro", Font.PLAIN, 14));
 		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
@@ -148,12 +158,13 @@ public class TheDartGame {
 		btnAbout.setBounds(322, 517, 231, 63);
 		frmTheDartGame.getContentPane().add(btnAbout);
 
+		// Logout
 		JLabel lblNewLabel_4 = new JLabel("");
 		lblNewLabel_4.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				frmTheDartGame.dispose();
-				Login ui = new Login();
+				LoginNew ui = new LoginNew();
 				ui.setVisible(true);
 			}
 		});
@@ -168,8 +179,9 @@ public class TheDartGame {
 		lblNewLabel_5.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_5.setBounds(776, 99, 46, 15);
 		frmTheDartGame.getContentPane().add(lblNewLabel_5);
-		
-		JButton btnScoreboard = new JButton("Scoreboard");
+
+		// Score board
+		JButton btnScoreboard = new JButton("Score Board");
 		btnScoreboard.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -179,12 +191,13 @@ public class TheDartGame {
 			}
 		});
 		btnScoreboard.setFont(new Font("Microsoft YaHei Light", Font.PLAIN, 31));
-		btnScoreboard.setBackground(new Color(204, 255, 255));
+		btnScoreboard.setBackground(new Color(255, 255, 204));
 		btnScoreboard.setBounds(322, 403, 231, 63);
 		frmTheDartGame.getContentPane().add(btnScoreboard);
-		
+
 		JLabel lblNewLabel_6 = new JLabel("");
-		lblNewLabel_6.setIcon(new ImageIcon("D:\\SLIIT\\3rd Year\\1st Sem\\CIS\\Eclipse\\Project\\Darts\\Darts new\\bg3.png"));
+		lblNewLabel_6.setIcon(
+				new ImageIcon("D:\\SLIIT\\3rd Year\\1st Sem\\CIS\\Eclipse\\Project\\Darts\\Darts new\\bg3.png"));
 		lblNewLabel_6.setBounds(0, 0, 852, 726);
 		frmTheDartGame.getContentPane().add(lblNewLabel_6);
 	}

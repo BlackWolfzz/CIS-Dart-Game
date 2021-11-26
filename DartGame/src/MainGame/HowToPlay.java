@@ -48,7 +48,7 @@ public class HowToPlay extends JFrame {
 				.getImage("D:\\SLIIT\\3rd Year\\1st Sem\\CIS\\Eclipse\\Project\\Images\\icons8-target-60.png"));
 		setTitle("The Dart Gane - How to Play");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 751, 481);
+		setBounds(100, 100, 880, 749);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(245, 255, 250));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -68,40 +68,45 @@ public class HowToPlay extends JFrame {
 				JLabel lblHowToPlay = new JLabel("How to Play");
 				lblHowToPlay.setHorizontalAlignment(SwingConstants.CENTER);
 				lblHowToPlay.setFont(new Font("Microsoft YaHei Light", Font.BOLD, 40));
-				lblHowToPlay.setBounds(243, 11, 261, 66);
+				lblHowToPlay.setBounds(291, 11, 261, 66);
 				contentPane.add(lblHowToPlay);
 		lblNewLabel_2.setIcon(
 				new ImageIcon("D:\\SLIIT\\3rd Year\\1st Sem\\CIS\\Eclipse\\Project\\Images\\icons8-home-50-nxt.png"));
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_2.setBounds(657, 11, 68, 66);
+		lblNewLabel_2.setBounds(786, 11, 68, 66);
 		contentPane.add(lblNewLabel_2);
 
 		JLabel lblNewLabel = new JLabel("1. Start Game");
 		lblNewLabel.setFont(new Font("Microsoft YaHei Light", Font.PLAIN, 21));
-		lblNewLabel.setBounds(61, 128, 618, 56);
+		lblNewLabel.setBounds(61, 128, 739, 56);
 		contentPane.add(lblNewLabel);
 
 		JLabel lblstartGame = new JLabel("2. Choose Difficulty mode from 'Options' according to your Age.");
 		lblstartGame.setFont(new Font("Microsoft YaHei Light", Font.PLAIN, 21));
-		lblstartGame.setBounds(61, 195, 618, 56);
+		lblstartGame.setBounds(61, 195, 739, 56);
 		contentPane.add(lblstartGame);
 
-		JLabel lblSolveThe = new JLabel("3. Solve the Equation and Choose the correct Answer.");
+		JLabel lblSolveThe = new JLabel("3. Solve the Equation using BODMAS and Type the correct Answer.");
 		lblSolveThe.setFont(new Font("Microsoft YaHei Light", Font.PLAIN, 21));
-		lblSolveThe.setBounds(61, 262, 618, 56);
+		lblSolveThe.setBounds(61, 262, 739, 56);
 		contentPane.add(lblSolveThe);
 		
 		JLabel lblEnjoy = new JLabel("Enjoy");
 		lblEnjoy.setHorizontalAlignment(SwingConstants.CENTER);
 		lblEnjoy.setFont(new Font("Microsoft YaHei Light", Font.PLAIN, 21));
-		lblEnjoy.setBounds(61, 340, 618, 56);
+		lblEnjoy.setBounds(61, 340, 739, 56);
 		contentPane.add(lblEnjoy);
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		panel.setBackground(new Color(255, 255, 255));
-		panel.setBounds(46, 112, 644, 298);
+		panel.setBounds(46, 112, 770, 298);
 		contentPane.add(panel);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon("D:\\SLIIT\\3rd Year\\1st Sem\\CIS\\Eclipse\\Project\\Darts\\Darts new\\bodmas.jpg"));
+		lblNewLabel_1.setBounds(46, 444, 770, 255);
+		contentPane.add(lblNewLabel_1);
 		Toolkit toolkit = getToolkit();
 		Dimension size = toolkit.getScreenSize();
 		setLocation(size.width / 2 - getWidth() / 2, size.height / 2 - getHeight() / 2);

@@ -159,22 +159,6 @@ public class Options extends JFrame {
 		lblNewLabel_1_1.setFont(new Font("Segoe UI Light", Font.PLAIN, 27));
 		lblNewLabel_1_1.setBounds(316, 406, 353, 86);
 		contentPane.add(lblNewLabel_1_1);
-
-		JLabel lblNewLabel_2_1 = new JLabel("Back");
-		lblNewLabel_2_1.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				contentPane.setVisible(false);
-				dispose();
-				Player.main(null);
-			}
-		});
-		lblNewLabel_2_1.setFont(new Font("Microsoft YaHei UI Light", Font.PLAIN, 20));
-		lblNewLabel_2_1.setIcon(
-				new ImageIcon("D:\\SLIIT\\3rd Year\\1st Sem\\CIS\\Eclipse\\Project\\Images\\icons8-back-24.png"));
-		lblNewLabel_2_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_2_1.setBounds(10, 11, 81, 66);
-		contentPane.add(lblNewLabel_2_1);
 	}
 
 }

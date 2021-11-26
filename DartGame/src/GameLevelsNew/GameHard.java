@@ -103,9 +103,9 @@ public class GameHard extends JFrame {
 			window.getContentPane().add(counterLabel);
 			window.setVisible(false);
 
-			counterLabel.setText("03:30");
-			second = 30;
-			minute = 3;
+			counterLabel.setText("02:00");
+			second = 00;
+			minute = 2;
 			countdownTimer();
 			timer.start();
 
@@ -113,21 +113,23 @@ public class GameHard extends JFrame {
 
 		// Random Number maker
 		int min = 1;
-		int max = 5;
+		int max = 4;
 		int Score = 0;
+		int up = 5;
+		int down = 10;
 
 		Random random = new Random();
 
 		int no1 = random.nextInt(max + min) + min;
 		int no2 = random.nextInt(max + min) + min;
-		int no3 = random.nextInt(max + min) + min;
+		int no3 = random.nextInt(up + down) + min;
 		int no4 = random.nextInt(max + min) + min;
-		int no5 = random.nextInt(max + min) + min;
+		int no5 = random.nextInt(up + down) + min;
 		int no6 = random.nextInt(max + min) + min;
 		int no7 = random.nextInt(max + min) + min;
 		int no8 = random.nextInt(max + min) + min;
 
-		int Answer = ((no1 + no2) * (no3 - no4) + (no5 / no6) - (no7 * no8));
+		double Answer = ((no1 + no2) * (no3 - no4) + (no5 / no6) - (no7 * no8));
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 851, 515);
@@ -232,7 +234,7 @@ public class GameHard extends JFrame {
 				int i = Integer.parseInt(getValue);
 				int score = 0;
 				if (i == Answer) {
-					JOptionPane.showMessageDialog(null, "Correct", "Game", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Correct", "Answer", JOptionPane.INFORMATION_MESSAGE);
 					score += 5;
 					System.out.println(score);
 					contentPane.setVisible(false);
@@ -241,7 +243,7 @@ public class GameHard extends JFrame {
 				}
 
 				else {
-					JOptionPane.showMessageDialog(null, "Wrong", "Game", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Wrong", "Answer", JOptionPane.ERROR_MESSAGE);
 					contentPane.setVisible(false);
 					dispose();
 					GameHard.main(null);
@@ -269,9 +271,10 @@ public class GameHard extends JFrame {
 		lbltimeLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lbltimeLabel_1.setFont(new Font("Segoe UI Historic", Font.BOLD, 25));
 		lbltimeLabel_1.setBounds(490, 18, 107, 27);
-		lbltimeLabel_1.setText("03:30");
+		lbltimeLabel_1.setText("02:00");
 		contentPane.add(lbltimeLabel_1);
 
+		// Home
 		lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.addMouseListener(new MouseAdapter() {
 			@Override
@@ -287,6 +290,7 @@ public class GameHard extends JFrame {
 		lblNewLabel_1.setBounds(666, 0, 73, 69);
 		contentPane.add(lblNewLabel_1);
 
+		// Change Level
 		lblNewLabel_2 = new JLabel("");
 		lblNewLabel_2.addMouseListener(new MouseAdapter() {
 			@Override
@@ -331,10 +335,10 @@ public class GameHard extends JFrame {
 					lbltimeLabel_1.setText(ddMinute + ":" + ddSecond);
 				}
 				if (minute == 0 && second == 0) {
-					JOptionPane.showMessageDialog(null, "Time Over", "Game", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Time Over", "OOOPS!!", JOptionPane.ERROR_MESSAGE);
 					contentPane.setVisible(false);
 					dispose();
-					TheDartGame.main(null);
+					Options.main(null);
 					timer.stop();
 				}
 			}

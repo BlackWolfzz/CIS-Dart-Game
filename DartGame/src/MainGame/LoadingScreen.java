@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import User.Login;
+import User.*;
 
 import javax.swing.JLabel;
 import java.awt.Color;
@@ -39,7 +39,7 @@ public class LoadingScreen extends JFrame {
 				LoadingScreen.lblNewLabel_2.setText(Integer.toString(x) + " %");
 				if (x == 100) {
 					frame.dispose();
-					Login.main(null);
+					LoginNew.main(null);
 				}
 			}
 		} catch (InterruptedException e) {

@@ -1,7 +1,6 @@
 package User;
 
 import java.sql.*;
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -57,7 +56,7 @@ public class LoginNew extends JFrame {
 		setTitle("The Dart Game - Login");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 453, 652);
+		setBounds(100, 100, 453, 742);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(204, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -87,6 +86,7 @@ public class LoginNew extends JFrame {
 		lblNewLabel_1_1.setBounds(347, 11, 80, 94);
 		contentPane.add(lblNewLabel_1_1);
 
+		// User name
 		JLabel lblUsername = new JLabel("Username");
 		lblUsername.setFont(new Font("Microsoft YaHei UI Light", Font.PLAIN, 20));
 		lblUsername.setBounds(61, 145, 114, 28);
@@ -98,6 +98,7 @@ public class LoginNew extends JFrame {
 		txtUsername.setBounds(61, 184, 313, 38);
 		contentPane.add(txtUsername);
 
+		// Password
 		JLabel lblPaassword = new JLabel("Password");
 		lblPaassword.setFont(new Font("Microsoft YaHei UI Light", Font.PLAIN, 20));
 		lblPaassword.setBounds(61, 250, 114, 28);
@@ -108,33 +109,14 @@ public class LoginNew extends JFrame {
 		txtPassword.setBounds(61, 289, 313, 38);
 		contentPane.add(txtPassword);
 
-		JButton btnSignUp = new JButton("SIGN UP");
-		btnSignUp.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				contentPane.setVisible(false);
-				dispose();
-				CreateProfile.main(null);
-			}
-		});
-		btnSignUp.setFont(new Font("Microsoft YaHei UI Light", Font.BOLD, 24));
-		btnSignUp.setBackground(new Color(204, 255, 204));
-		btnSignUp.setBounds(61, 531, 313, 46);
-		contentPane.add(btnSignUp);
-
-		JLabel lblNewLabel_3 = new JLabel("");
-		lblNewLabel_3.setIcon(
-				new ImageIcon("D:\\SLIIT\\3rd Year\\1st Sem\\CIS\\Eclipse\\Project\\Darts\\Darts new\\or.png"));
-		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_3.setBounds(61, 492, 313, 28);
-		contentPane.add(lblNewLabel_3);
-
+		// Login Button
 		JButton btnLogin = new JButton("LOGIN");
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ex) {
 
 				try {
 					Class.forName("com.mysql.jdbc.Driver");
-					Connection con = DriverManager.getConnection("jdbc:mysql://localhost/cisgame", "root", "");
+					Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cisgame", "root", "");
 					Statement stmt = con.createStatement();
 					String sql = "Select * from users where uname='" + txtUsername.getText() + "' and password='"
 							+ txtPassword.getText().toString() + "' ";
@@ -147,9 +129,6 @@ public class LoginNew extends JFrame {
 					} else {
 						JOptionPane.showMessageDialog(null, "Invalid Login Details", "Login Error",
 								JOptionPane.ERROR_MESSAGE);
-
-						txtPassword.setText(null);
-						txtUsername.setText(null);
 
 						txtUsername.requestFocus();
 
@@ -166,12 +145,7 @@ public class LoginNew extends JFrame {
 		btnLogin.setBounds(61, 357, 313, 46);
 		contentPane.add(btnLogin);
 
-		JLabel lblNewLabel_1_2 = new JLabel("Developed by Nimesh Fernando - 2115050");
-		lblNewLabel_1_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1_2.setFont(new Font("Yu Gothic UI Semilight", Font.PLAIN, 13));
-		lblNewLabel_1_2.setBounds(83, 588, 280, 14);
-		contentPane.add(lblNewLabel_1_2);
-
+		// Clear Button
 		JButton btnClear = new JButton("Clear");
 		btnClear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -185,5 +159,47 @@ public class LoginNew extends JFrame {
 		btnClear.setBackground(new Color(255, 153, 153));
 		btnClear.setBounds(105, 424, 220, 46);
 		contentPane.add(btnClear);
+
+		// OR
+		JLabel lblNewLabel_3 = new JLabel("");
+		lblNewLabel_3.setIcon(
+				new ImageIcon("D:\\SLIIT\\3rd Year\\1st Sem\\CIS\\Eclipse\\Project\\Darts\\Darts new\\or.png"));
+		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_3.setBounds(61, 492, 313, 28);
+		contentPane.add(lblNewLabel_3);
+
+		// Sign up Button
+		JButton btnSignUp = new JButton("SIGN UP");
+		btnSignUp.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				contentPane.setVisible(false);
+				dispose();
+				CreateProfile.main(null);
+			}
+		});
+		btnSignUp.setFont(new Font("Microsoft YaHei UI Light", Font.BOLD, 24));
+		btnSignUp.setBackground(new Color(204, 255, 204));
+		btnSignUp.setBounds(61, 542, 313, 46);
+		contentPane.add(btnSignUp);
+
+		// Guest Button
+		JButton btnContinueAsGuest = new JButton("Continue as Guest");
+		btnContinueAsGuest.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				contentPane.setVisible(false);
+				dispose();
+				TheDartGame.main(null);
+			}
+		});
+		btnContinueAsGuest.setFont(new Font("Microsoft YaHei UI Light", Font.BOLD, 24));
+		btnContinueAsGuest.setBackground(new Color(255, 255, 204));
+		btnContinueAsGuest.setBounds(61, 608, 313, 46);
+		contentPane.add(btnContinueAsGuest);
+
+		JLabel lblNewLabel_1_2 = new JLabel("Developed by Nimesh Fernando - 2115050");
+		lblNewLabel_1_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1_2.setFont(new Font("Yu Gothic UI Semilight", Font.PLAIN, 13));
+		lblNewLabel_1_2.setBounds(81, 678, 280, 14);
+		contentPane.add(lblNewLabel_1_2);
 	}
 }

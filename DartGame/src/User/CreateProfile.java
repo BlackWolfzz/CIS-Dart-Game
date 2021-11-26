@@ -1,4 +1,5 @@
 package User;
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -17,6 +18,10 @@ import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.awt.event.ActionEvent;
 
 public class CreateProfile extends JFrame {
@@ -45,7 +50,8 @@ public class CreateProfile extends JFrame {
 	 * Create the frame.
 	 */
 	public CreateProfile() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("D:\\SLIIT\\3rd Year\\1st Sem\\CIS\\Eclipse\\Project\\Images\\icons8-target-60.png"));
+		setIconImage(Toolkit.getDefaultToolkit()
+				.getImage("D:\\SLIIT\\3rd Year\\1st Sem\\CIS\\Eclipse\\Project\\Images\\icons8-target-60.png"));
 		setTitle("The Dart Game - Sign Up");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -103,9 +109,29 @@ public class CreateProfile extends JFrame {
 		JButton btnSignUp = new JButton("SIGN UP");
 		btnSignUp.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				/*try {
+					String user = txtUsername.getText();
+					String pword = txtPassword.getText();
+					
+					Class.forName("com.mysql.jdbc.Driver");
+					Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cisgame", "root", "");
+					Statement stmt = con.createStatement();
+					String sql = "INSERT INTO `user`(`uname`, `password`) VALUES (?,?)";
+					ResultSet rs = stmt.executeQuery(sql);
+					stmt.setString(1, user);
+					stmt.setString(2, pword);
+					stmt.execute();
+
+					contentPane.setVisible(false);
+					dispose();
+					LoginNew.main(null);
+
+				} catch (Exception e) {
+				} */
+
 				contentPane.setVisible(false);
 				dispose();
-				Login.main(null);
+				LoginNew.main(null);
 			}
 		});
 		btnSignUp.setFont(new Font("Microsoft YaHei UI Light", Font.BOLD, 24));
@@ -125,7 +151,7 @@ public class CreateProfile extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				contentPane.setVisible(false);
 				dispose();
-				Login.main(null);
+				LoginNew.main(null);
 			}
 		});
 		btnLogin.setFont(new Font("Microsoft YaHei UI Light", Font.BOLD, 24));
