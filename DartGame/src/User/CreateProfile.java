@@ -7,6 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import java.awt.Toolkit;
 
@@ -18,10 +20,7 @@ import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.awt.event.ActionEvent;
 
 public class CreateProfile extends JFrame {
@@ -85,9 +84,9 @@ public class CreateProfile extends JFrame {
 		lblNewLabel_1_1.setBounds(347, 11, 80, 94);
 		contentPane.add(lblNewLabel_1_1);
 
-		JLabel lblUsername = new JLabel("Username");
+		JLabel lblUsername = new JLabel("New Username");
 		lblUsername.setFont(new Font("Microsoft YaHei UI Light", Font.PLAIN, 20));
-		lblUsername.setBounds(61, 145, 114, 28);
+		lblUsername.setBounds(61, 145, 150, 28);
 		contentPane.add(lblUsername);
 
 		txtUsername = new JTextField();
@@ -96,9 +95,9 @@ public class CreateProfile extends JFrame {
 		txtUsername.setBounds(61, 184, 313, 38);
 		contentPane.add(txtUsername);
 
-		JLabel lblPaassword = new JLabel("Password");
+		JLabel lblPaassword = new JLabel("New Password");
 		lblPaassword.setFont(new Font("Microsoft YaHei UI Light", Font.PLAIN, 20));
-		lblPaassword.setBounds(61, 250, 114, 28);
+		lblPaassword.setBounds(61, 250, 150, 28);
 		contentPane.add(lblPaassword);
 
 		txtPassword = new JPasswordField();
@@ -109,29 +108,36 @@ public class CreateProfile extends JFrame {
 		JButton btnSignUp = new JButton("SIGN UP");
 		btnSignUp.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				/*try {
-					String user = txtUsername.getText();
-					String pword = txtPassword.getText();
-					
+				String user = txtUsername.getText();
+				String pword = txtPassword.getText();
+
+				String msg = "" + user;
+				msg += " \n";
+
+				try {
 					Class.forName("com.mysql.jdbc.Driver");
 					Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cisgame", "root", "");
 					Statement stmt = con.createStatement();
-					String sql = "INSERT INTO `user`(`uname`, `password`) VALUES (?,?)";
-					ResultSet rs = stmt.executeQuery(sql);
-					stmt.setString(1, user);
-					stmt.setString(2, pword);
-					stmt.execute();
+					String sql = "INSERT INTO users values ('" + user + "','" + pword + "')";
 
-					contentPane.setVisible(false);
-					dispose();
-					LoginNew.main(null);
+					int x = stmt.executeUpdate(sql);
+					if (x == 0) {
+						JOptionPane.showMessageDialog(null, "Error", "Username Already in Use!",
+								JOptionPane.ERROR_MESSAGE);
+					} else {
+						JOptionPane.showMessageDialog(null, "Welcome", "Registration Successful!",
+								JOptionPane.INFORMATION_MESSAGE);
 
-				} catch (Exception e) {
-				} */
+						txtUsername.requestFocus();
+					}
+					con.close();
 
-				contentPane.setVisible(false);
-				dispose();
-				LoginNew.main(null);
+				} catch (Exception ex) {
+				}
+
+				/*
+				 * contentPane.setVisible(false); dispose(); LoginNew.main(null);
+				 */
 			}
 		});
 		btnSignUp.setFont(new Font("Microsoft YaHei UI Light", Font.BOLD, 24));
@@ -148,6 +154,7 @@ public class CreateProfile extends JFrame {
 
 		JButton btnLogin = new JButton("LOGIN");
 		btnLogin.addActionListener(new ActionListener() {
+
 			public void actionPerformed(ActionEvent e) {
 				contentPane.setVisible(false);
 				dispose();

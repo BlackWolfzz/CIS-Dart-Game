@@ -1,4 +1,5 @@
 package MainGame;
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -53,7 +54,8 @@ public class LoadingScreen extends JFrame {
 	 */
 	public LoadingScreen() {
 		setTitle("The Dart Game");
-		setIconImage(Toolkit.getDefaultToolkit().getImage("D:\\SLIIT\\3rd Year\\1st Sem\\CIS\\Eclipse\\Project\\Images\\icons8-target-60.png"));
+		setIconImage(Toolkit.getDefaultToolkit()
+				.getImage("D:\\SLIIT\\3rd Year\\1st Sem\\CIS\\Eclipse\\Project\\Images\\icons8-target-60.png"));
 		setResizable(false);
 		setUndecorated(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -79,7 +81,8 @@ public class LoadingScreen extends JFrame {
 		contentPane.add(progressBar);
 
 		lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon("D:\\SLIIT\\3rd Year\\1st Sem\\CIS\\Eclipse\\Project\\Darts\\Darts new\\The Dart Game 4.png"));
+		lblNewLabel_1.setIcon(new ImageIcon(
+				"D:\\SLIIT\\3rd Year\\1st Sem\\CIS\\Eclipse\\Project\\Darts\\Darts new\\The Dart Game 4.png"));
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setFont(new Font("Avenir LT Std 65 Medium", Font.BOLD, 65));
 		lblNewLabel_1.setForeground(Color.WHITE);

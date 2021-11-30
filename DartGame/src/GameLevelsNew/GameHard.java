@@ -129,7 +129,7 @@ public class GameHard extends JFrame {
 		int no7 = random.nextInt(max + min) + min;
 		int no8 = random.nextInt(max + min) + min;
 
-		double Answer = ((no1 + no2) * (no3 - no4) + (no5 / no6) - (no7 * no8));
+		int Answer = ((no1 + no2) * (no3 - no4) + (no5 / no6) - (no7 * no8));
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 851, 515);

@@ -105,10 +105,14 @@ public class GameEasy extends JFrame {
 
 		}
 
+		//Score
+		int qanswer = 0;
+		int marks = 0;
+		
 		// Random Number maker
 		int min = 1;
 		int max = 20;
-		int Score = 0;
+		int score = 0;
 
 		Random random = new Random();
 
@@ -119,6 +123,9 @@ public class GameEasy extends JFrame {
 		int no5 = random.nextInt(max + min) + min;
 
 		int Answer = no1 + no2;
+		
+		
+
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 851, 515);
 		contentPane = new JPanel();
@@ -206,7 +213,7 @@ public class GameEasy extends JFrame {
 
 		txtpn_score = new JTextPane();
 		txtpn_score.setEditable(false);
-		txtpn_score.setText("" + Score);
+		txtpn_score.setText("" + score);
 		txtpn_score.setFont(new Font("Segoe UI Historic", Font.BOLD, 22));
 		txtpn_score.setBounds(99, 19, 79, 35);
 		contentPane.add(txtpn_score);
