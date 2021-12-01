@@ -90,6 +90,8 @@ public class Scoreboard extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+
+		// To Centralize the window
 		Toolkit toolkit = getToolkit();
 		Dimension size = toolkit.getScreenSize();
 		setLocation(size.width / 2 - getWidth() / 2, size.height / 2 - getHeight() / 2);

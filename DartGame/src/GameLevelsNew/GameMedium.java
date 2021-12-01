@@ -39,7 +39,7 @@ public class GameMedium extends JFrame {
 	private JLabel lblNewLabel;
 	private JLabel lblFinalVelocityObject_1;
 	private JTextField textField_4;
-	private JButton btnNewButton;
+	private JButton btnChkAns;
 	private JTextPane textPane_m1k;
 	private JTextPane textPane_m2k;
 
@@ -119,6 +119,7 @@ public class GameMedium extends JFrame {
 		int no3 = random.nextInt(max + min) + min;
 		int no4 = random.nextInt(max + min) + min;
 
+		// Equation
 		int Answer = ((no1 * no2) - (no3 + no4));
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -188,8 +189,9 @@ public class GameMedium extends JFrame {
 		lblFinalVelocityObject_1.setBounds(318, 315, 117, 44);
 		contentPane.add(lblFinalVelocityObject_1);
 
-		btnNewButton = new JButton("Check");
-		btnNewButton.addActionListener(new ActionListener() {
+		// Answer Check btn
+		btnChkAns = new JButton("Check");
+		btnChkAns.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
 				String getValue = textField_4.getText();
@@ -213,11 +215,11 @@ public class GameMedium extends JFrame {
 
 			}
 		});
-		btnNewButton.setFont(new Font("Segoe UI Historic", Font.PLAIN, 20));
-		btnNewButton.setForeground(new Color(255, 0, 0));
-		btnNewButton.setBackground(new Color(255, 255, 204));
-		btnNewButton.setBounds(391, 393, 107, 37);
-		contentPane.add(btnNewButton);
+		btnChkAns.setFont(new Font("Segoe UI Historic", Font.PLAIN, 20));
+		btnChkAns.setForeground(new Color(255, 0, 0));
+		btnChkAns.setBackground(new Color(255, 255, 204));
+		btnChkAns.setBounds(391, 393, 107, 37);
+		contentPane.add(btnChkAns);
 
 		txtpn_score = new JTextPane();
 		txtpn_score.setEditable(false);

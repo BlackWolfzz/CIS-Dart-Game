@@ -60,16 +60,20 @@ public class CreateProfile extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+
+		// To Centralize the window
 		Toolkit toolkit = getToolkit();
 		Dimension size = toolkit.getScreenSize();
 		setLocation(size.width / 2 - getWidth() / 2, size.height / 2 - getHeight() / 2);
 
+		// Big Sign up Label
 		JLabel lblNewLabel = new JLabel("Sign Up");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Avenir LT Std 55 Roman", Font.PLAIN, 45));
 		lblNewLabel.setBounds(132, 28, 175, 65);
 		contentPane.add(lblNewLabel);
 
+		// Dart icon
 		JLabel lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setIcon(
 				new ImageIcon("D:\\SLIIT\\3rd Year\\1st Sem\\CIS\\Eclipse\\Project\\Images\\icons8-dart-64.png"));
@@ -77,6 +81,7 @@ public class CreateProfile extends JFrame {
 		lblNewLabel_1.setBounds(10, 11, 80, 94);
 		contentPane.add(lblNewLabel_1);
 
+		// Dart icon
 		JLabel lblNewLabel_1_1 = new JLabel("");
 		lblNewLabel_1_1.setIcon(
 				new ImageIcon("D:\\SLIIT\\3rd Year\\1st Sem\\CIS\\Eclipse\\Project\\Images\\icons8-dart-64.png"));
@@ -84,27 +89,32 @@ public class CreateProfile extends JFrame {
 		lblNewLabel_1_1.setBounds(347, 11, 80, 94);
 		contentPane.add(lblNewLabel_1_1);
 
+		// New User name lbl
 		JLabel lblUsername = new JLabel("New Username");
 		lblUsername.setFont(new Font("Microsoft YaHei UI Light", Font.PLAIN, 20));
 		lblUsername.setBounds(61, 145, 150, 28);
 		contentPane.add(lblUsername);
 
+		// New User name txt
 		txtUsername = new JTextField();
 		txtUsername.setFont(new Font("Microsoft YaHei UI Light", Font.PLAIN, 19));
 		txtUsername.setColumns(10);
 		txtUsername.setBounds(61, 184, 313, 38);
 		contentPane.add(txtUsername);
 
+		// New Password lbl
 		JLabel lblPaassword = new JLabel("New Password");
 		lblPaassword.setFont(new Font("Microsoft YaHei UI Light", Font.PLAIN, 20));
 		lblPaassword.setBounds(61, 250, 150, 28);
 		contentPane.add(lblPaassword);
 
+		// New Password txt
 		txtPassword = new JPasswordField();
 		txtPassword.setFont(new Font("Microsoft YaHei UI Light", Font.PLAIN, 19));
 		txtPassword.setBounds(61, 289, 313, 38);
 		contentPane.add(txtPassword);
 
+		// Sign up Button
 		JButton btnSignUp = new JButton("SIGN UP");
 		btnSignUp.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -145,6 +155,7 @@ public class CreateProfile extends JFrame {
 		btnSignUp.setBounds(61, 364, 313, 46);
 		contentPane.add(btnSignUp);
 
+		// OR
 		JLabel lblNewLabel_3 = new JLabel("");
 		lblNewLabel_3.setIcon(
 				new ImageIcon("D:\\SLIIT\\3rd Year\\1st Sem\\CIS\\Eclipse\\Project\\Darts\\Darts new\\or.png"));
@@ -152,6 +163,7 @@ public class CreateProfile extends JFrame {
 		lblNewLabel_3.setBounds(61, 450, 313, 28);
 		contentPane.add(lblNewLabel_3);
 
+		// Login Button
 		JButton btnLogin = new JButton("LOGIN");
 		btnLogin.addActionListener(new ActionListener() {
 
@@ -166,6 +178,7 @@ public class CreateProfile extends JFrame {
 		btnLogin.setBounds(61, 513, 313, 46);
 		contentPane.add(btnLogin);
 
+		// Info label
 		JLabel lblNewLabel_1_2 = new JLabel("Developed by Nimesh Fernando - 2115050");
 		lblNewLabel_1_2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1_2.setFont(new Font("Yu Gothic UI Semilight", Font.PLAIN, 13));

@@ -1,4 +1,5 @@
 package MainGame;
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -62,6 +63,7 @@ public class Options extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+
 		// To Centralize the window
 		Toolkit toolkit = getToolkit();
 		Dimension size = toolkit.getScreenSize();
@@ -73,19 +75,19 @@ public class Options extends JFrame {
 		lblNewLabel.setBounds(256, 11, 176, 57);
 		contentPane.add(lblNewLabel);
 
-		JButton btnNewButton = new JButton("Easy");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnEasy = new JButton("Easy");
+		btnEasy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				contentPane.setVisible(false);
 				dispose();
 				GameEasy.main(null);
 			}
 		});
-		btnNewButton.setBackground(new Color(204, 255, 204));
-		btnNewButton.setForeground(new Color(0, 0, 0));
-		btnNewButton.setFont(new Font("Microsoft YaHei Light", Font.PLAIN, 30));
-		btnNewButton.setBounds(93, 192, 176, 57);
-		contentPane.add(btnNewButton);
+		btnEasy.setBackground(new Color(204, 255, 204));
+		btnEasy.setForeground(new Color(0, 0, 0));
+		btnEasy.setFont(new Font("Microsoft YaHei Light", Font.PLAIN, 30));
+		btnEasy.setBounds(93, 192, 176, 57);
+		contentPane.add(btnEasy);
 
 		JButton btnMedium = new JButton("Medium");
 		btnMedium.addActionListener(new ActionListener() {

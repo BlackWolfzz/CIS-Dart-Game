@@ -39,7 +39,7 @@ public class GameEasy extends JFrame {
 	private JLabel lblNewLabel;
 	private JLabel lblFinalVelocityObject_1;
 	private JTextField textField_4;
-	private JButton btnNewButton;
+	private JButton btnChkAns;
 	private JTextPane textPane_m1k;
 	private JTextPane textPane_m2k;
 
@@ -105,10 +105,10 @@ public class GameEasy extends JFrame {
 
 		}
 
-		//Score
+		// Score
 		int qanswer = 0;
 		int marks = 0;
-		
+
 		// Random Number maker
 		int min = 1;
 		int max = 20;
@@ -122,9 +122,8 @@ public class GameEasy extends JFrame {
 		int no4 = random.nextInt(max + min) + min;
 		int no5 = random.nextInt(max + min) + min;
 
+		// Equation
 		int Answer = no1 + no2;
-		
-		
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 851, 515);
@@ -179,9 +178,9 @@ public class GameEasy extends JFrame {
 		lblFinalVelocityObject_1.setBounds(318, 315, 117, 44);
 		contentPane.add(lblFinalVelocityObject_1);
 
-		// Check button
-		btnNewButton = new JButton("Check");
-		btnNewButton.addActionListener(new ActionListener() {
+		// Answer Check btn
+		btnChkAns = new JButton("Check");
+		btnChkAns.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
 				String getValue = textField_4.getText();
@@ -205,11 +204,11 @@ public class GameEasy extends JFrame {
 
 			}
 		});
-		btnNewButton.setFont(new Font("Segoe UI Historic", Font.PLAIN, 20));
-		btnNewButton.setForeground(new Color(255, 0, 0));
-		btnNewButton.setBackground(new Color(255, 255, 204));
-		btnNewButton.setBounds(391, 393, 107, 37);
-		contentPane.add(btnNewButton);
+		btnChkAns.setFont(new Font("Segoe UI Historic", Font.PLAIN, 20));
+		btnChkAns.setForeground(new Color(255, 0, 0));
+		btnChkAns.setBackground(new Color(255, 255, 204));
+		btnChkAns.setBounds(391, 393, 107, 37);
+		contentPane.add(btnChkAns);
 
 		txtpn_score = new JTextPane();
 		txtpn_score.setEditable(false);
