@@ -8,10 +8,6 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.plaf.DimensionUIResource;
 
-import GameLevels.GameLeveEasy;
-import GameLevels.GameLeveHard;
-import GameLevels.GameLeveMedium;
-
 import java.awt.Toolkit;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;

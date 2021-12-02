@@ -38,7 +38,7 @@ public class GameMedium extends JFrame {
 	private JPanel contentPane;
 	private JLabel lblNewLabel;
 	private JLabel lblFinalVelocityObject_1;
-	private JTextField textField_4;
+	private JTextField txtAnswer;
 	private JButton btnChkAns;
 	private JTextPane textPane_m1k;
 	private JTextPane textPane_m2k;
@@ -101,7 +101,7 @@ public class GameMedium extends JFrame {
 
 			counterLabel.setText("01:00");
 			second = 00;
-			minute = 1;
+			minute = 2;
 			countdownTimer();
 			timer.start();
 
@@ -151,6 +151,7 @@ public class GameMedium extends JFrame {
 
 		// Random Numbers
 		textPane_m1k = new JTextPane();
+		textPane_m1k.setEditable(false);
 		textPane_m1k.setText("" + no1);
 		textPane_m1k.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 23));
 		textPane_m1k.setBounds(150, 156, 33, 34);
@@ -178,11 +179,11 @@ public class GameMedium extends JFrame {
 		contentPane.add(textPane_m2k_2);
 
 		// Answer
-		textField_4 = new JTextField();
-		textField_4.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 25));
-		textField_4.setColumns(10);
-		textField_4.setBounds(445, 316, 159, 43);
-		contentPane.add(textField_4);
+		txtAnswer = new JTextField();
+		txtAnswer.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 25));
+		txtAnswer.setColumns(10);
+		txtAnswer.setBounds(445, 316, 159, 43);
+		contentPane.add(txtAnswer);
 
 		lblFinalVelocityObject_1 = new JLabel("Answer");
 		lblFinalVelocityObject_1.setFont(new Font("Segoe UI Historic", Font.PLAIN, 22));
@@ -194,16 +195,22 @@ public class GameMedium extends JFrame {
 		btnChkAns.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				String getValue = textField_4.getText();
+				String getValue = txtAnswer.getText();
 				int i = Integer.parseInt(getValue);
 				int score = 0;
 				if (i == Answer) {
 					JOptionPane.showMessageDialog(null, "Correct", "Answer", JOptionPane.INFORMATION_MESSAGE);
-					score += 5;
-					System.out.println(score);
-					contentPane.setVisible(false);
-					dispose();
-					GameMedium.main(null);
+					int no1 = random.nextInt(max + min) + min;
+					int no2 = random.nextInt(max + min) + min;
+					textPane_m1k.setText("" + no1);
+					textPane_m2k.setText("" + no2);
+
+					score += 1;
+					System.out.println("Correct!");
+					txtpn_score.setText(" " + score);
+
+					txtAnswer.setText(null);
+					txtAnswer.requestFocus();
 				}
 
 				else {
@@ -234,7 +241,7 @@ public class GameMedium extends JFrame {
 		lbltimeLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lbltimeLabel_1.setFont(new Font("Segoe UI Historic", Font.BOLD, 25));
 		lbltimeLabel_1.setBounds(490, 18, 107, 27);
-		lbltimeLabel_1.setText("01:00");
+		lbltimeLabel_1.setText("02:00");
 		contentPane.add(lbltimeLabel_1);
 
 		// Home

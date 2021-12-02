@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import MainGame.TheDartGame;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
@@ -128,17 +131,21 @@ public class CreateProfile extends JFrame {
 					Class.forName("com.mysql.jdbc.Driver");
 					Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cisgame", "root", "");
 					Statement stmt = con.createStatement();
+					System.out.println("Registration Succefull " + user + " Welcome!");
 					String sql = "INSERT INTO users values ('" + user + "','" + pword + "')";
 
 					int x = stmt.executeUpdate(sql);
 					if (x == 0) {
-						JOptionPane.showMessageDialog(null, "Error", "Username Already in Use!",
-								JOptionPane.ERROR_MESSAGE);
+						JOptionPane.showMessageDialog(null, "Error", "Registraion Failed!", JOptionPane.ERROR_MESSAGE);
 					} else {
 						JOptionPane.showMessageDialog(null, "Welcome", "Registration Successful!",
 								JOptionPane.INFORMATION_MESSAGE);
 
-						txtUsername.requestFocus();
+						contentPane.setVisible(false);
+						dispose();
+						TheDartGame.main(null);
+
+						// txtUsername.requestFocus();
 					}
 					con.close();
 

@@ -32,8 +32,10 @@ import java.awt.Toolkit;
 import javax.swing.SwingConstants;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.net.URL;
+import java.sql.*;
 
-public class GameEasy extends JFrame {
+public class HQuize1 extends JFrame {
 
 	private JPanel contentPane;
 	private JLabel lblNewLabel;
@@ -58,7 +60,7 @@ public class GameEasy extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					GameEasy frame = new GameEasy();
+					HQuize1 frame = new HQuize1();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -77,7 +79,7 @@ public class GameEasy extends JFrame {
 	private JLabel lblNewLabel_1;
 	private JLabel lblNewLabel_2;
 
-	public GameEasy() {
+	public HQuize1() {
 		setResizable(false);
 		setTitle("The Dart Game - Easy");
 		setIconImage(Toolkit.getDefaultToolkit()
@@ -97,9 +99,9 @@ public class GameEasy extends JFrame {
 			window.getContentPane().add(counterLabel);
 			window.setVisible(false);
 
-			counterLabel.setText("02:00");
-			second = 00;
-			minute = 2;
+			counterLabel.setText("03:00");
+			second = 10;
+			minute = 00;
 			countdownTimer();
 			timer.start();
 
@@ -118,9 +120,6 @@ public class GameEasy extends JFrame {
 
 		int no1 = random.nextInt(max + min) + min;
 		int no2 = random.nextInt(max + min) + min;
-		int no3 = random.nextInt(max + min) + min;
-		int no4 = random.nextInt(max + min) + min;
-		int no5 = random.nextInt(max + min) + min;
 
 		// Equation
 		int Answer = no1 + no2;
@@ -187,8 +186,10 @@ public class GameEasy extends JFrame {
 				String getValue = txtAnswer.getText();
 				int i = Integer.parseInt(getValue);
 				int score = 0;
+
 				if (i == Answer) {
-					JOptionPane.showMessageDialog(null, "Correct", "Answer", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Correct Answer", "CORRECT !", JOptionPane.INFORMATION_MESSAGE);
+
 					int no1 = random.nextInt(max + min) + min;
 					int no2 = random.nextInt(max + min) + min;
 					textPane_m1k.setText("" + no1);
@@ -200,13 +201,26 @@ public class GameEasy extends JFrame {
 
 					txtAnswer.setText(null);
 					txtAnswer.requestFocus();
+
+					/*
+					 * contentPane.setVisible(false); dispose(); GameEasy.main(null);
+					 */
+
 				}
 
+				/*
+				 * for (int counter=1; counter<=10; counter++) { no1 = 1+random.nextInt(21); no2
+				 * = 1+random.nextInt(21);
+				 * 
+				 * }
+				 */
+
 				else {
-					JOptionPane.showMessageDialog(null, "Wrong", "Answer", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Restart Level", "WRONG !", JOptionPane.ERROR_MESSAGE);
 					contentPane.setVisible(false);
 					dispose();
-					GameEasy.main(null);
+					HQuize1.main(null);
+					System.out.println("Wrong!");
 				}
 
 			}
@@ -236,6 +250,7 @@ public class GameEasy extends JFrame {
 		// Home
 		lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.addMouseListener(new MouseAdapter() {
+
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				contentPane.setVisible(false);
@@ -295,9 +310,38 @@ public class GameEasy extends JFrame {
 				if (minute == 0 && second == 0) {
 					JOptionPane.showMessageDialog(null, "Time Over", "OOOPS!!", JOptionPane.ERROR_MESSAGE);
 					contentPane.setVisible(false);
-					dispose();
-					Scores.main(null);
-					timer.stop();
+
+					String score = txtpn_score.getText();
+					String time = lbltimeLabel_1.getText();
+
+					try {
+						Class.forName("com.mysql.jdbc.Driver");
+						Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cisgame", "root", "");
+						Statement stmt = con.createStatement();
+						System.out.println("Registration Succefull!");
+						String sql = "INSERT INTO scoreboard values ('" + score + "','" + time + "')";
+
+						int x = stmt.executeUpdate(sql);
+						if (x == 0) {
+							JOptionPane.showMessageDialog(null, "Error", "Username Already in Use!",
+									JOptionPane.ERROR_MESSAGE);
+						} else {
+							JOptionPane.showMessageDialog(null, "Finished", "Play Again!",
+									JOptionPane.INFORMATION_MESSAGE);
+
+							contentPane.setVisible(false);
+							dispose();
+							Options.main(null);
+
+							// txtUsername.requestFocus();
+						}
+						con.close();
+
+					} catch (Exception ex) {
+					}
+					/*
+					 * dispose(); Options.main(null); timer.stop();
+					 */
 				}
 			}
 		});

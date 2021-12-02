@@ -125,6 +125,7 @@ public class LoginNew extends JFrame {
 					Class.forName("com.mysql.jdbc.Driver");
 					Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cisgame", "root", "");
 					Statement stmt = con.createStatement();
+					System.out.println("Login Succefull!");
 					String sql = "Select * from users where uname='" + txtUsername.getText() + "' and password='"
 							+ txtPassword.getText().toString() + "' ";
 					ResultSet rs = stmt.executeQuery(sql);

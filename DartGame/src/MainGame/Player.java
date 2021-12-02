@@ -6,6 +6,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
@@ -17,13 +19,13 @@ import javax.swing.ImageIcon;
 import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class Player extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
 
 	/**
 	 * Launch the application.
@@ -66,18 +68,48 @@ public class Player extends JFrame {
 		lblNewLabel.setBounds(125, 51, 233, 42);
 		contentPane.add(lblNewLabel);
 
-		textField = new JTextField();
-		textField.setFont(new Font("Microsoft YaHei UI Light", Font.PLAIN, 25));
-		textField.setBounds(125, 118, 233, 42);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		JTextField txtPlayer = new JTextField();
+		txtPlayer.setFont(new Font("Microsoft YaHei UI Light", Font.PLAIN, 25));
+		txtPlayer.setBounds(125, 118, 233, 42);
+		contentPane.add(txtPlayer);
+		txtPlayer.setColumns(10);
 
 		JButton btnStartGame = new JButton("Start Game");
 		btnStartGame.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				contentPane.setVisible(false);
+				
+				String player = txtPlayer.getText();
+				
+				try {
+					Class.forName("com.mysql.jdbc.Driver");
+					Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cisgame", "root", "");
+					Statement stmt = con.createStatement();
+					System.out.println("Player - "+ player);
+					String sql = "INSERT INTO scoreboard values ('" + player + "')";
+
+					int x = stmt.executeUpdate(sql);
+					if (x == 0) {
+						JOptionPane.showMessageDialog(null, "Error", "Username Already in Use!",
+								JOptionPane.ERROR_MESSAGE);
+					} else {
+						JOptionPane.showMessageDialog(null, "Finished", "Play Again!",
+								JOptionPane.INFORMATION_MESSAGE);
+
+						contentPane.setVisible(false);
+						dispose();
+						Options.main(null);
+						
+
+						// txtUsername.requestFocus();
+					}
+					con.close();
+
+				} catch (Exception ex) {
+				}
+				
+				/*contentPane.setVisible(false);
 				dispose();
-				Options.main(null);
+				Options.main(null); */
 			}
 		});
 		btnStartGame.setForeground(Color.BLACK);
