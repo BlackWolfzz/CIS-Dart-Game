@@ -24,6 +24,12 @@ import java.awt.event.ActionEvent;
 
 import GameLevelsNew.*;
 
+/**
+ * 
+ * @author Nimesh //Level Options page
+ *
+ */
+
 public class Options extends JFrame {
 
 	private JPanel contentPane;
@@ -65,15 +71,19 @@ public class Options extends JFrame {
 		Dimension size = toolkit.getScreenSize();
 		setLocation(size.width / 2 - getWidth() / 2, size.height / 2 - getHeight() / 2);
 
+		// Options label
 		JLabel lblNewLabel = new JLabel("Options");
 		lblNewLabel.setFont(new Font("Microsoft YaHei Light", Font.BOLD, 40));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(256, 11, 176, 57);
 		contentPane.add(lblNewLabel);
 
+		// Easy level Button
 		JButton btnEasy = new JButton("Easy");
 		btnEasy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
+				// Directed to Easy level
 				contentPane.setVisible(false);
 				dispose();
 				GameEasy.main(null);
@@ -85,9 +95,12 @@ public class Options extends JFrame {
 		btnEasy.setBounds(93, 192, 176, 57);
 		contentPane.add(btnEasy);
 
+		// Medium level Button
 		JButton btnMedium = new JButton("Medium");
 		btnMedium.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
+				// Directed to Medium Level
 				contentPane.setVisible(false);
 				dispose();
 				GameMedium.main(null);
@@ -99,9 +112,12 @@ public class Options extends JFrame {
 		btnMedium.setBounds(93, 307, 176, 57);
 		contentPane.add(btnMedium);
 
+		// Hard level Button
 		JButton btnHard = new JButton("Hard");
 		btnHard.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
+				// Directed to Hard level
 				contentPane.setVisible(false);
 				dispose();
 				GameHard.main(null);
@@ -113,12 +129,14 @@ public class Options extends JFrame {
 		btnHard.setBounds(93, 418, 176, 57);
 		contentPane.add(btnHard);
 
+		// Difficulty label
 		JLabel lblDifficulty = new JLabel("Difficulty");
 		lblDifficulty.setHorizontalAlignment(SwingConstants.LEFT);
 		lblDifficulty.setFont(new Font("Microsoft YaHei UI Light", Font.PLAIN, 34));
 		lblDifficulty.setBounds(93, 104, 176, 57);
 		contentPane.add(lblDifficulty);
 
+		// Easy level Description
 		JLabel lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setIcon(
@@ -131,6 +149,7 @@ public class Options extends JFrame {
 		lblNewLabel_2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				// Directed to Main page
 				contentPane.setVisible(false);
 				dispose();
 				TheDartGame.main(null);
@@ -142,6 +161,7 @@ public class Options extends JFrame {
 		lblNewLabel_2.setBounds(621, 11, 68, 66);
 		contentPane.add(lblNewLabel_2);
 
+		// Medium level Description
 		JLabel lblNewLabel_1_3 = new JLabel("");
 		lblNewLabel_1_3.setIcon(
 				new ImageIcon("D:\\SLIIT\\3rd Year\\1st Sem\\CIS\\Eclipse\\Project\\Darts\\Darts new\\15 kids 2.png"));
@@ -150,6 +170,7 @@ public class Options extends JFrame {
 		lblNewLabel_1_3.setBounds(316, 293, 353, 86);
 		contentPane.add(lblNewLabel_1_3);
 
+		// Hard level Description
 		JLabel lblNewLabel_1_1 = new JLabel("");
 		lblNewLabel_1_1.setIcon(new ImageIcon(
 				"D:\\SLIIT\\3rd Year\\1st Sem\\CIS\\Eclipse\\Project\\Darts\\Darts new\\15 kids plus.png"));

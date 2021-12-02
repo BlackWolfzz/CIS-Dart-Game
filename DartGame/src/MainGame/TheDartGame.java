@@ -22,6 +22,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+/**
+ * 
+ * @author Nimesh //Main (Home) page
+ *
+ */
+
 public class TheDartGame {
 
 	private JFrame frmTheDartGame;
@@ -53,6 +59,8 @@ public class TheDartGame {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+
+		// Main frame
 		frmTheDartGame = new JFrame();
 		frmTheDartGame.setResizable(false);
 		frmTheDartGame.setIconImage(Toolkit.getDefaultToolkit()
@@ -64,6 +72,7 @@ public class TheDartGame {
 		frmTheDartGame.getContentPane().setLayout(null);
 		frmTheDartGame.setLocationRelativeTo(null);
 
+		// Game Logo label
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(
 				"D:\\SLIIT\\3rd Year\\1st Sem\\CIS\\Eclipse\\Project\\Darts\\Darts new\\The Dart Game 3.png"));
@@ -73,6 +82,7 @@ public class TheDartGame {
 		lblNewLabel.setBounds(141, 11, 561, 79);
 		frmTheDartGame.getContentPane().add(lblNewLabel);
 
+		// Big dart imaage top
 		JLabel lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setIcon(
@@ -84,6 +94,8 @@ public class TheDartGame {
 		JButton btnNewButton = new JButton("START GAME");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
+				// Directed to Level Options
 				frmTheDartGame.dispose();
 				Options ui = new Options();
 				ui.setVisible(true);
@@ -98,6 +110,8 @@ public class TheDartGame {
 		JButton btnHowToPlay = new JButton("How to Play");
 		btnHowToPlay.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
+				// Directed to do How to Play
 				frmTheDartGame.dispose();
 				HowToPlay ui = new HowToPlay();
 				ui.setVisible(true);
@@ -116,6 +130,8 @@ public class TheDartGame {
 				 * JOptionPane.showMessageDialog(null, "Are You Sure You want to Exit", "Exit",
 				 * JOptionPane.OK_CANCEL_OPTION);
 				 */
+
+				// Close the game
 				frmTheDartGame.dispose();
 			}
 		});
@@ -124,6 +140,7 @@ public class TheDartGame {
 		btnExit.setBounds(341, 614, 199, 63);
 		frmTheDartGame.getContentPane().add(btnExit);
 
+		// Dart image on left
 		JLabel lblNewLabel_2 = new JLabel("");
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_2.setIcon(
@@ -131,6 +148,7 @@ public class TheDartGame {
 		lblNewLabel_2.setBounds(52, 504, 93, 79);
 		frmTheDartGame.getContentPane().add(lblNewLabel_2);
 
+		// Boy image on right
 		JLabel lblNewLabel_2_1 = new JLabel("");
 		lblNewLabel_2_1.setIcon(
 				new ImageIcon("D:\\SLIIT\\3rd Year\\1st Sem\\CIS\\Eclipse\\Project\\Images\\icons8-dartman-64.png"));
@@ -138,16 +156,19 @@ public class TheDartGame {
 		lblNewLabel_2_1.setBounds(694, 504, 93, 79);
 		frmTheDartGame.getContentPane().add(lblNewLabel_2_1);
 
-		// About
+		// Version
 		JLabel lblNewLabel_3 = new JLabel("V 1.0");
 		lblNewLabel_3.setFont(new Font("Source Code Pro", Font.PLAIN, 14));
 		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_3.setBounds(401, 688, 80, 27);
 		frmTheDartGame.getContentPane().add(lblNewLabel_3);
 
+		// About
 		JButton btnAbout = new JButton("About");
 		btnAbout.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
+				// Directed to about
 				frmTheDartGame.dispose();
 				About ui = new About();
 				ui.setVisible(true);
@@ -163,9 +184,12 @@ public class TheDartGame {
 		lblNewLabel_4.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+
+				// Directed to Login
 				frmTheDartGame.dispose();
 				LoginNew ui = new LoginNew();
 				ui.setVisible(true);
+				System.out.println("Bye");
 			}
 		});
 		lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
@@ -185,6 +209,8 @@ public class TheDartGame {
 		btnScoreboard.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+
+				// Directed to Score board
 				frmTheDartGame.dispose();
 				Scoreboard ui = new Scoreboard();
 				ui.setVisible(true);
@@ -195,6 +221,7 @@ public class TheDartGame {
 		btnScoreboard.setBounds(322, 403, 231, 63);
 		frmTheDartGame.getContentPane().add(btnScoreboard);
 
+		// Background picture
 		JLabel lblNewLabel_6 = new JLabel("");
 		lblNewLabel_6.setIcon(
 				new ImageIcon("D:\\SLIIT\\3rd Year\\1st Sem\\CIS\\Eclipse\\Project\\Darts\\Darts new\\bg3.png"));

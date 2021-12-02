@@ -29,6 +29,12 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JButton;
 
+/**
+ * 
+ * @author Nimesh
+ *
+ */
+
 public class Scores extends JFrame {
 
 	private JPanel contentPane;
@@ -114,19 +120,19 @@ public class Scores extends JFrame {
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_2.setBounds(417, 0, 73, 69);
 		contentPane.add(lblNewLabel_2);
-		
+
 		JButton btnNewButton = new JButton("See Score");
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
+
 				String score = txtScore.getText();
-				
+
 				try {
 					Class.forName("com.mysql.jdbc.Driver");
 					Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cisgame", "root", "");
 					Statement stmt = con.createStatement();
-					System.out.println("Score: " );
+					System.out.println("Score: ");
 					String sql = "Select score from scoreboard where score='" + txtScore.getText() + "' ";
 					ResultSet rs = stmt.executeQuery(sql);
 
@@ -134,12 +140,11 @@ public class Scores extends JFrame {
 				} catch (Exception ex) {
 					System.out.println(ex);
 				}
-				
+
 			}
 		});
 		btnNewButton.setBounds(192, 236, 89, 23);
 		contentPane.add(btnNewButton);
 
-		
 	}
 }

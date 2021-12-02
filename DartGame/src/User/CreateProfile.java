@@ -26,6 +26,12 @@ import java.awt.event.ActionListener;
 import java.sql.*;
 import java.awt.event.ActionEvent;
 
+/**
+ * 
+ * @author Nimesh //Sign up page
+ *
+ */
+
 public class CreateProfile extends JFrame {
 
 	private JPanel contentPane;
@@ -121,6 +127,7 @@ public class CreateProfile extends JFrame {
 		JButton btnSignUp = new JButton("SIGN UP");
 		btnSignUp.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
 				String user = txtUsername.getText();
 				String pword = txtPassword.getText();
 
@@ -128,19 +135,30 @@ public class CreateProfile extends JFrame {
 				msg += " \n";
 
 				try {
+
+					// DB Connection
 					Class.forName("com.mysql.jdbc.Driver");
 					Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cisgame", "root", "");
 					Statement stmt = con.createStatement();
-					System.out.println("Registration Succefull " + user + " Welcome!");
+
+					// Sign up SQL Query
 					String sql = "INSERT INTO users values ('" + user + "','" + pword + "')";
 
 					int x = stmt.executeUpdate(sql);
+
+					// Invalid Registration
 					if (x == 0) {
 						JOptionPane.showMessageDialog(null, "Error", "Registraion Failed!", JOptionPane.ERROR_MESSAGE);
+						System.out.println("Registration Unsuccefull!");
+
+						// Valid Registration
 					} else {
-						JOptionPane.showMessageDialog(null, "Welcome", "Registration Successful!",
+						JOptionPane.showMessageDialog(null, "Welcome " + user, "Registration Successful!",
 								JOptionPane.INFORMATION_MESSAGE);
 
+						System.out.println(user + " Welcome to The Dart Game!");
+
+						// Directed to do Main page
 						contentPane.setVisible(false);
 						dispose();
 						TheDartGame.main(null);
@@ -175,6 +193,7 @@ public class CreateProfile extends JFrame {
 		btnLogin.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
+				// Directed to do Login
 				contentPane.setVisible(false);
 				dispose();
 				LoginNew.main(null);

@@ -19,6 +19,12 @@ import javax.swing.SwingConstants;
 import java.awt.Font;
 import java.awt.Toolkit;
 
+/**
+ * 
+ * @author Nimesh //Loading Page
+ *
+ */
+
 public class LoadingScreen extends JFrame {
 
 	private JPanel contentPane;
@@ -30,6 +36,8 @@ public class LoadingScreen extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+
+		// Progress bar
 		int x;
 		LoadingScreen frame = new LoadingScreen();
 		frame.setVisible(true);
@@ -65,10 +73,13 @@ public class LoadingScreen extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+
+		// To Centralize the window
 		Toolkit toolkit = getToolkit();
 		Dimension size = toolkit.getScreenSize();
 		setLocation(size.width / 2 - getWidth() / 2, size.height / 2 - getHeight() / 2);
 
+		// Loading GIF
 		JLabel lblNewLabel = new JLabel("");
 		ImageIcon icon = new ImageIcon(this.getClass().getResource("/loading 4.gif"));
 		lblNewLabel.setIcon(icon);
@@ -80,6 +91,7 @@ public class LoadingScreen extends JFrame {
 		progressBar.setBounds(58, 658, 839, 22);
 		contentPane.add(progressBar);
 
+		// Game Logo label
 		lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setIcon(new ImageIcon(
 				"D:\\SLIIT\\3rd Year\\1st Sem\\CIS\\Eclipse\\Project\\Darts\\Darts new\\The Dart Game 4.png"));

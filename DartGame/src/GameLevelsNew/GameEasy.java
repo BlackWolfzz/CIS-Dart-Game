@@ -33,6 +33,12 @@ import javax.swing.SwingConstants;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+/**
+ * 
+ * @author Nimesh //Easy Level
+ *
+ */
+
 public class GameEasy extends JFrame {
 
 	private JPanel contentPane;
@@ -83,6 +89,7 @@ public class GameEasy extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit()
 				.getImage("D:\\SLIIT\\3rd Year\\1st Sem\\CIS\\Eclipse\\Project\\Images\\icons8-target-60.png"));
 
+		// Timer window
 		{
 			window = new JFrame();
 			window.setSize(0, 0);
@@ -138,7 +145,7 @@ public class GameEasy extends JFrame {
 		Dimension size = toolkit.getScreenSize();
 		setLocation(size.width / 2 - getWidth() / 2, size.height / 2 - getHeight() / 2);
 
-		// Score
+		// Score label
 		JLabel lblScore = new JLabel("Score");
 		lblScore.setHorizontalAlignment(SwingConstants.CENTER);
 		lblScore.setFont(new Font("Segoe UI Historic", Font.PLAIN, 21));
@@ -174,6 +181,7 @@ public class GameEasy extends JFrame {
 		txtAnswer.setBounds(445, 316, 159, 43);
 		contentPane.add(txtAnswer);
 
+		// Answer label
 		lblFinalVelocityObject_1 = new JLabel("Answer");
 		lblFinalVelocityObject_1.setFont(new Font("Segoe UI Historic", Font.PLAIN, 22));
 		lblFinalVelocityObject_1.setBounds(318, 315, 117, 44);
@@ -187,8 +195,11 @@ public class GameEasy extends JFrame {
 				String getValue = txtAnswer.getText();
 				int i = Integer.parseInt(getValue);
 				int score = 0;
+
+				// Answer checker
 				if (i == Answer) {
 					JOptionPane.showMessageDialog(null, "Correct", "Answer", JOptionPane.INFORMATION_MESSAGE);
+
 					int no1 = random.nextInt(max + min) + min;
 					int no2 = random.nextInt(max + min) + min;
 					textPane_m1k.setText("" + no1);
@@ -217,6 +228,7 @@ public class GameEasy extends JFrame {
 		btnChkAns.setBounds(391, 393, 107, 37);
 		contentPane.add(btnChkAns);
 
+		// Score
 		txtpn_score = new JTextPane();
 		txtpn_score.setEditable(false);
 		txtpn_score.setText("" + score);
@@ -225,7 +237,6 @@ public class GameEasy extends JFrame {
 		contentPane.add(txtpn_score);
 
 		// Time label
-
 		lbltimeLabel_1 = new JLabel("");
 		lbltimeLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lbltimeLabel_1.setFont(new Font("Segoe UI Historic", Font.BOLD, 25));
@@ -238,6 +249,8 @@ public class GameEasy extends JFrame {
 		lblNewLabel_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+
+				// Directed to Main page
 				contentPane.setVisible(false);
 				dispose();
 				TheDartGame.main(null);
@@ -254,6 +267,8 @@ public class GameEasy extends JFrame {
 		lblNewLabel_2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+
+				// Directed to Level Options page
 				contentPane.setVisible(false);
 				dispose();
 				Options.main(null);
@@ -265,6 +280,7 @@ public class GameEasy extends JFrame {
 		lblNewLabel_2.setBounds(749, 0, 73, 69);
 		contentPane.add(lblNewLabel_2);
 
+		// Question image
 		lblNewLabel = new JLabel("");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblNewLabel.setIcon(
@@ -273,6 +289,7 @@ public class GameEasy extends JFrame {
 		contentPane.add(lblNewLabel);
 	}
 
+	// Count down
 	public void countdownTimer() {
 
 		timer = new Timer(1000, new ActionListener() {
@@ -296,7 +313,7 @@ public class GameEasy extends JFrame {
 					JOptionPane.showMessageDialog(null, "Time Over", "OOOPS!!", JOptionPane.ERROR_MESSAGE);
 					contentPane.setVisible(false);
 					dispose();
-					Scores.main(null);
+					Options.main(null);
 					timer.stop();
 				}
 			}

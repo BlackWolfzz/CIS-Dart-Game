@@ -33,6 +33,12 @@ import javax.swing.SwingConstants;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+/**
+ * 
+ * @author Nimesh //Medium Level
+ *
+ */
+
 public class GameMedium extends JFrame {
 
 	private JPanel contentPane;
@@ -85,6 +91,7 @@ public class GameMedium extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit()
 				.getImage("D:\\SLIIT\\3rd Year\\1st Sem\\CIS\\Eclipse\\Project\\Images\\icons8-target-60.png"));
 
+		// Timer window
 		{
 			window = new JFrame();
 			window.setSize(0, 0);
@@ -135,14 +142,14 @@ public class GameMedium extends JFrame {
 		Dimension size = toolkit.getScreenSize();
 		setLocation(size.width / 2 - getWidth() / 2, size.height / 2 - getHeight() / 2);
 
-		// Score
+		// Score label
 		JLabel lblScore = new JLabel("Score");
 		lblScore.setHorizontalAlignment(SwingConstants.CENTER);
 		lblScore.setFont(new Font("Segoe UI Historic", Font.PLAIN, 21));
 		lblScore.setBounds(10, 11, 79, 43);
 		contentPane.add(lblScore);
 
-		// Timer
+		// Timer label
 		JLabel lblTime = new JLabel("Time");
 		lblTime.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTime.setFont(new Font("Segoe UI Historic", Font.PLAIN, 21));
@@ -228,6 +235,7 @@ public class GameMedium extends JFrame {
 		btnChkAns.setBounds(391, 393, 107, 37);
 		contentPane.add(btnChkAns);
 
+		// Score
 		txtpn_score = new JTextPane();
 		txtpn_score.setEditable(false);
 		txtpn_score.setText("" + Score);
@@ -236,7 +244,6 @@ public class GameMedium extends JFrame {
 		contentPane.add(txtpn_score);
 
 		// Time label
-
 		lbltimeLabel_1 = new JLabel("");
 		lbltimeLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lbltimeLabel_1.setFont(new Font("Segoe UI Historic", Font.BOLD, 25));
@@ -249,6 +256,8 @@ public class GameMedium extends JFrame {
 		lblNewLabel_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+
+				// Directed to Main page
 				contentPane.setVisible(false);
 				dispose();
 				TheDartGame.main(null);
@@ -265,6 +274,8 @@ public class GameMedium extends JFrame {
 		lblNewLabel_2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+
+				// Directed to Level Options page
 				contentPane.setVisible(false);
 				dispose();
 				Options.main(null);
@@ -277,6 +288,7 @@ public class GameMedium extends JFrame {
 		lblNewLabel_2.setBounds(749, 0, 73, 69);
 		contentPane.add(lblNewLabel_2);
 
+		// Question image
 		lblNewLabel = new JLabel("");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblNewLabel.setIcon(new ImageIcon(
@@ -285,6 +297,7 @@ public class GameMedium extends JFrame {
 		contentPane.add(lblNewLabel);
 	}
 
+	// Count down
 	public void countdownTimer() {
 
 		timer = new Timer(1000, new ActionListener() {

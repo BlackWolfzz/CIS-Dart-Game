@@ -1,4 +1,5 @@
 package MainGame;
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -22,6 +23,12 @@ import javax.swing.JEditorPane;
 import javax.swing.JTree;
 import javax.swing.JComboBox;
 import javax.swing.JTextPane;
+
+/**
+ * 
+ * @author Nimesh //About Page
+ *
+ */
 
 public class About extends JFrame {
 
@@ -58,14 +65,19 @@ public class About extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+
+		// To Centralize the window
 		Toolkit toolkit = getToolkit();
 		Dimension size = toolkit.getScreenSize();
 		setLocation(size.width / 2 - getWidth() / 2, size.height / 2 - getHeight() / 2);
 
+		// Home Button
 		JLabel lblNewLabel_2 = new JLabel("");
 		lblNewLabel_2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+
+				// Directed to Main page
 				contentPane.setVisible(false);
 				dispose();
 				TheDartGame.main(null);
@@ -77,18 +89,22 @@ public class About extends JFrame {
 		lblNewLabel_2.setBounds(515, 11, 68, 66);
 		contentPane.add(lblNewLabel_2);
 
+		// About label
 		JLabel lblAbout = new JLabel("About");
 		lblAbout.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAbout.setFont(new Font("Microsoft YaHei Light", Font.BOLD, 40));
 		lblAbout.setBounds(162, 11, 261, 66);
 		contentPane.add(lblAbout);
-		
+
+		// About Image
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setIcon(new ImageIcon("D:\\SLIIT\\3rd Year\\1st Sem\\CIS\\Eclipse\\Project\\Darts\\Darts new\\about 3.png"));
+		lblNewLabel.setIcon(
+				new ImageIcon("D:\\SLIIT\\3rd Year\\1st Sem\\CIS\\Eclipse\\Project\\Darts\\Darts new\\about 3.png"));
 		lblNewLabel.setBounds(0, 77, 593, 392);
 		contentPane.add(lblNewLabel);
-		
+
+		// Developer Info label
 		JLabel lblNewLabel_1 = new JLabel("Developed by Nimesh Fernando - 2115050");
 		lblNewLabel_1.setFont(new Font("Yu Gothic UI Semilight", Font.PLAIN, 13));
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);

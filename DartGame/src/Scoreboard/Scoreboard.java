@@ -49,6 +49,13 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+/**
+ * 
+ * @author Nimesh //Score board page
+ *
+ */
+
+//Convert the generated chart URL into an imageicon.
 public class Scoreboard extends JFrame {
 
 	private JPanel contentPane;
@@ -96,12 +103,14 @@ public class Scoreboard extends JFrame {
 		Dimension size = toolkit.getScreenSize();
 		setLocation(size.width / 2 - getWidth() / 2, size.height / 2 - getHeight() / 2);
 
+		// Score board Label
 		JLabel lblScoreBoard = new JLabel("Score Board - High Scores");
 		lblScoreBoard.setHorizontalAlignment(SwingConstants.CENTER);
 		lblScoreBoard.setFont(new Font("Microsoft YaHei Light", Font.BOLD, 40));
 		lblScoreBoard.setBounds(120, 11, 508, 66);
 		contentPane.add(lblScoreBoard);
 
+		// Home
 		JLabel lblNewLabel_2 = new JLabel("");
 		lblNewLabel_2.addMouseListener(new MouseAdapter() {
 			@Override
@@ -117,11 +126,12 @@ public class Scoreboard extends JFrame {
 		lblNewLabel_2.setBounds(726, 11, 68, 66);
 		contentPane.add(lblNewLabel_2);
 
+		// Label for Chart
 		JLabel ChartDisplay = new JLabel("");
 		ChartDisplay.setBounds(23, 88, 755, 515);
 		contentPane.add(ChartDisplay);
 
-		// Generating Scores
+		// Button for Generating Scores
 		JButton btnNewButton = new JButton("View Scores");
 		btnNewButton.setBackground(new Color(153, 255, 204));
 		btnNewButton.setFont(new Font("Segoe UI Historic", Font.PLAIN, 28));
@@ -130,6 +140,8 @@ public class Scoreboard extends JFrame {
 
 				try {
 
+					// Generating Bar chart
+
 					Image image = null;
 					URL url = new URL(
 							"https://quickchart.io/chart?c=%7B%0A%20%20type%3A%20%27bar%27%2C%0A%20%20data%3A%20%7B%0A%20%20%20%20labels%3A%20%5B%27Easy%27%2C%20%27Medium%27%2C%20%27Hard%27%5D%2C%0A%20%20%20%20datasets%3A%20%5B%7B%0A%20%20%20%20%20%20label%3A%20%27Level%27%2C%0A%20%20%20%20%20%20data%3A%20%5B20%2C%2014%2C%205%5D%0A%20%20%20%20%7D%5D%0A%20%20%7D%0A%7D%0A");
@@ -137,6 +149,8 @@ public class Scoreboard extends JFrame {
 							image.SCALE_SMOOTH);
 					ImageIcon icon = new ImageIcon(image);
 					ChartDisplay.setIcon(icon);
+
+					System.out.println("High Scores Generated!");
 
 				} catch (MalformedURLException | RemoteException ex) {
 					Logger.getLogger(Scoreboard.class.getName()).log(Level.SEVERE, null, ex);
@@ -148,26 +162,20 @@ public class Scoreboard extends JFrame {
 		btnNewButton.setBounds(290, 631, 211, 52);
 		contentPane.add(btnNewButton);
 
-		JTable table = new JTable();
-		Object[] columns = { "Player Name", "Score" };
-		DefaultTableModel model = new DefaultTableModel();
-
-		model.setColumnIdentifiers(columns);
-		table.setModel(model);
-
-		table.setBackground(Color.white);
-		table.setForeground(Color.black);
-		table.setSelectionBackground(Color.red);
-		table.setGridColor(Color.red);
-		table.setSelectionForeground(Color.white);
-		table.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		table.setRowHeight(30);
-		table.setAutoCreateRowSorter(true);
-
-		JScrollPane pane = new JScrollPane(table);
-		pane.setForeground(Color.RED);
-		pane.setBackground(Color.WHITE);
-		pane.setBounds(10, 10, 10, 10);
+		/*
+		 * JTable table = new JTable(); Object[] columns = { "Player Name", "Score" };
+		 * DefaultTableModel model = new DefaultTableModel();
+		 * 
+		 * model.setColumnIdentifiers(columns); table.setModel(model);
+		 * 
+		 * table.setBackground(Color.white); table.setForeground(Color.black);
+		 * table.setSelectionBackground(Color.red); table.setGridColor(Color.red);
+		 * table.setSelectionForeground(Color.white); table.setFont(new Font("Tahoma",
+		 * Font.PLAIN, 17)); table.setRowHeight(30); table.setAutoCreateRowSorter(true);
+		 * 
+		 * JScrollPane pane = new JScrollPane(table); pane.setForeground(Color.RED);
+		 * pane.setBackground(Color.WHITE); pane.setBounds(10, 10, 10, 10);
+		 */
 
 	}
 }

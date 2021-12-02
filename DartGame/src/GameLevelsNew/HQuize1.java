@@ -1,7 +1,5 @@
 package GameLevelsNew;
 
-import java.awt.BorderLayout;
-
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -34,6 +32,12 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.net.URL;
 import java.sql.*;
+
+/**
+ * 
+ * @author Nimesh
+ *
+ */
 
 public class HQuize1 extends JFrame {
 
@@ -81,7 +85,7 @@ public class HQuize1 extends JFrame {
 
 	public HQuize1() {
 		setResizable(false);
-		setTitle("The Dart Game - Easy");
+		setTitle("Hquize1");
 		setIconImage(Toolkit.getDefaultToolkit()
 				.getImage("D:\\SLIIT\\3rd Year\\1st Sem\\CIS\\Eclipse\\Project\\Images\\icons8-target-60.png"));
 
@@ -100,8 +104,8 @@ public class HQuize1 extends JFrame {
 			window.setVisible(false);
 
 			counterLabel.setText("03:00");
-			second = 10;
-			minute = 00;
+			second = 00;
+			minute = 2;
 			countdownTimer();
 			timer.start();
 
@@ -188,7 +192,7 @@ public class HQuize1 extends JFrame {
 				int score = 0;
 
 				if (i == Answer) {
-					JOptionPane.showMessageDialog(null, "Correct Answer", "CORRECT !", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Correct Answer", "CORRECT!", JOptionPane.INFORMATION_MESSAGE);
 
 					int no1 = random.nextInt(max + min) + min;
 					int no2 = random.nextInt(max + min) + min;
@@ -216,7 +220,17 @@ public class HQuize1 extends JFrame {
 				 */
 
 				else {
-					JOptionPane.showMessageDialog(null, "Restart Level", "WRONG !", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Restart Level", "WRONG!", JOptionPane.ERROR_MESSAGE);
+
+					/*
+					 * int no1 = random.nextInt(max + min) + min; int no2 = random.nextInt(max +
+					 * min) + min; textPane_m1k.setText("" + no1); textPane_m2k.setText("" + no2);
+					 * 
+					 * score -= 1; System.out.println("Correct!"); txtpn_score.setText(" " + score);
+					 * 
+					 * txtAnswer.setText(null); txtAnswer.requestFocus();
+					 */
+
 					contentPane.setVisible(false);
 					dispose();
 					HQuize1.main(null);

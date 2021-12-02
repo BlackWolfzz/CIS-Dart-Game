@@ -25,6 +25,12 @@ import MainGame.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+/**
+ * 
+ * @author Nimesh //Login Page
+ *
+ */
+
 public class LoginNew extends JFrame {
 
 	private JPanel contentPane;
@@ -122,25 +128,37 @@ public class LoginNew extends JFrame {
 			public void actionPerformed(ActionEvent ex) {
 
 				try {
+
+					// DB Connection
 					Class.forName("com.mysql.jdbc.Driver");
 					Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cisgame", "root", "");
 					Statement stmt = con.createStatement();
-					System.out.println("Login Succefull!");
+
+					// Login SQL Query
 					String sql = "Select * from users where uname='" + txtUsername.getText() + "' and password='"
 							+ txtPassword.getText().toString() + "' ";
 					ResultSet rs = stmt.executeQuery(sql);
 
+					// Valid Login
 					if (rs.next()) {
+
+						System.out.println("Login Succefull!");
+
+						// Directed to do Main page
 						contentPane.setVisible(false);
 						dispose();
 						TheDartGame.main(null);
+
+						// Invalid Login
 					} else {
 						JOptionPane.showMessageDialog(null, "Invalid Login Details", "Login Error",
 								JOptionPane.ERROR_MESSAGE);
+						System.out.println("Login Unsuccefull!");
 
 						txtUsername.requestFocus();
 
 						con.close();
+
 					}
 
 				} catch (Exception e) {
@@ -157,9 +175,12 @@ public class LoginNew extends JFrame {
 		JButton btnClear = new JButton("Clear");
 		btnClear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
+				// Clears user name and password text fields
 				txtUsername.setText("");
 				txtPassword.setText("");
 
+				// focus to User name
 				txtUsername.requestFocus();
 			}
 		});
@@ -180,6 +201,8 @@ public class LoginNew extends JFrame {
 		JButton btnSignUp = new JButton("SIGN UP");
 		btnSignUp.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
+				// Directed to do Sign up
 				contentPane.setVisible(false);
 				dispose();
 				CreateProfile.main(null);
@@ -194,6 +217,8 @@ public class LoginNew extends JFrame {
 		JButton btnContinueAsGuest = new JButton("Continue as Guest");
 		btnContinueAsGuest.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
+				// Directed to do Main page
 				contentPane.setVisible(false);
 				dispose();
 				TheDartGame.main(null);
