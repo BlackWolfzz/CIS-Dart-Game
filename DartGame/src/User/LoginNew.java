@@ -153,7 +153,7 @@ public class LoginNew extends JFrame {
 					} else {
 						JOptionPane.showMessageDialog(null, "Invalid Login Details", "Login Error",
 								JOptionPane.ERROR_MESSAGE);
-						System.out.println("Login Unsuccefull!");
+						System.out.println("Login Failed!");
 
 						txtUsername.requestFocus();
 

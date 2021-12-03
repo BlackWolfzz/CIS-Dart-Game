@@ -28,8 +28,8 @@ import java.awt.event.ActionEvent;
 
 /**
  * 
- * @author Nimesh //Sign up page
- * //Register connected to the database using MySQL
+ * @author Nimesh //Sign up page //Register connected to the database using
+ *         MySQL
  *
  */
 
@@ -150,7 +150,7 @@ public class CreateProfile extends JFrame {
 					// Invalid Registration
 					if (x == 0) {
 						JOptionPane.showMessageDialog(null, "Error", "Registraion Failed!", JOptionPane.ERROR_MESSAGE);
-						System.out.println("Registration Unsuccefull!");
+						System.out.println("Registration Failed!");
 
 						// Valid Registration
 					} else {
