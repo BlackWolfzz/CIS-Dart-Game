@@ -247,6 +247,7 @@ public class GameHard extends JFrame {
 
 				// Answer checker
 				if (i == Answer) {
+					JOptionPane.showMessageDialog(null, "Correct", "Answer", JOptionPane.INFORMATION_MESSAGE);
 					int no1 = random.nextInt(max + min) + min;
 					int no2 = random.nextInt(max + min) + min;
 					textPane_m1k.setText("" + no1);
