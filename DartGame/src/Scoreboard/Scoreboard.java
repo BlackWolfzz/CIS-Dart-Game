@@ -51,7 +51,7 @@ import java.awt.event.ActionEvent;
 
 /**
  * 
- * @author Nimesh //Score board page
+ * @author Nimesh //Score board page //Score board API using Quick
  *
  */
 
@@ -132,10 +132,10 @@ public class Scoreboard extends JFrame {
 		contentPane.add(ChartDisplay);
 
 		// Button for Generating Scores
-		JButton btnNewButton = new JButton("View Scores");
-		btnNewButton.setBackground(new Color(153, 255, 204));
-		btnNewButton.setFont(new Font("Segoe UI Historic", Font.PLAIN, 28));
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnViewScore = new JButton("View Scores");
+		btnViewScore.setBackground(new Color(153, 255, 204));
+		btnViewScore.setFont(new Font("Segoe UI Historic", Font.PLAIN, 28));
+		btnViewScore.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
 				try {
@@ -159,8 +159,8 @@ public class Scoreboard extends JFrame {
 				}
 			}
 		});
-		btnNewButton.setBounds(290, 631, 211, 52);
-		contentPane.add(btnNewButton);
+		btnViewScore.setBounds(290, 631, 211, 52);
+		contentPane.add(btnViewScore);
 
 		/*
 		 * JTable table = new JTable(); Object[] columns = { "Player Name", "Score" };

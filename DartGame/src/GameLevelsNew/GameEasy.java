@@ -35,7 +35,7 @@ import java.awt.event.MouseEvent;
 
 /**
  * 
- * @author Nimesh //Easy Level
+ * @author Nimesh //Easy Level //Easy equation level
  *
  */
 

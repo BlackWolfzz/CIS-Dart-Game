@@ -24,7 +24,8 @@ import java.awt.event.MouseEvent;
 
 /**
  * 
- * @author Nimesh //Main (Home) page
+ * @author Nimesh //Main (Home) page // Navigation panel to About, How To Play,
+ *         Score board, Logout
  *
  */
 
@@ -82,7 +83,7 @@ public class TheDartGame {
 		lblNewLabel.setBounds(141, 11, 561, 79);
 		frmTheDartGame.getContentPane().add(lblNewLabel);
 
-		// Big dart imaage top
+		// Big dart image top
 		JLabel lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setIcon(

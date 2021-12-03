@@ -26,7 +26,8 @@ import GameLevelsNew.*;
 
 /**
  * 
- * @author Nimesh //Level Options page
+ * @author Nimesh //Level Options page //Panel to change difficulty level of the
+ *         game
  *
  */
 

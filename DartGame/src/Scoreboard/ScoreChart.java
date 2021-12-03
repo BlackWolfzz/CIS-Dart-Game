@@ -4,7 +4,8 @@ import io.quickchart.QuickChart;
 
 /**
  * 
- * @author Nimesh // Connecter or Score board
+ * @author Nimesh // Connecter for Score board // Score board API using Quick
+ *         Chart
  *
  */
 

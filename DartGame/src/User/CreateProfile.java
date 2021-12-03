@@ -29,6 +29,7 @@ import java.awt.event.ActionEvent;
 /**
  * 
  * @author Nimesh //Sign up page
+ * //Register connected to the database using MySQL
  *
  */
 

@@ -22,7 +22,7 @@ import javax.swing.border.EtchedBorder;
 
 /**
  * 
- * @author Nimesh //How to Play Page
+ * @author Nimesh //How to Play Page //Steps on how to play the game
  *
  */
 

@@ -27,7 +27,7 @@ import java.awt.event.MouseEvent;
 
 /**
  * 
- * @author Nimesh //Login Page
+ * @author Nimesh //Login Page //Login connected to the database using MySQL
  *
  */
 
